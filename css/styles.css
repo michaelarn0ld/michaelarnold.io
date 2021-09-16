@@ -1,0 +1,106 @@
+/* Color palette, font weights, and side margins */
+:root {
+    --bg-color: #212121;
+    --primary-color: #62FA88;
+    --txt-clr-dk: #212121;
+    --txt-clr-lt: #F5F5F5;
+    --txt-sz-sm: 1.3rem;
+    --txt-wt-lt: 200;
+    --txt-wt-bd: 500;
+    --margin-sides: 8rem;
+}
+
+/* Basic settings for all pages */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    color: var(--txt-clr-lt);
+    background: var(--bg-color);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styles for header component */
+header {
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin: 1.4rem var(--margin-sides);
+}
+
+header > a {
+    grid-column: 1 / 3; 
+    font-size: var(--txt-sz-sm);
+    font-weight: var(--txt-wt-bd);
+    text-decoration: none;
+    color: var(--txt-clr-lt);
+}
+
+header > a > span {
+    color: var(--primary-color);
+}
+
+header > section {
+    grid-column: 3 / 5;
+    display: flex;
+}
+
+header > section > div {
+    display: flex;
+    margin-right: 2.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+header > section > div > a {
+    margin-left: 0.5rem;
+    color: var(--txt-clr-lt);
+    font-size: var(--txt-sz-sm);
+    font-weight: var(--txt-wt-lt);
+    text-decoration: none;
+}
+
+header > section > div > a:hover {
+    color: var(--primary-color);
+}
+
+header > nav {
+    grid-column: -1 / -6;
+    justify-content: end;
+    align-items: center;
+    display: flex;
+}
+
+header > nav > a {
+    margin-left: 5rem;
+    color: var(--txt-clr-lt);
+    font-size: var(--txt-sz-sm);
+    font-weight: var(--txt-wt-lt);
+    text-decoration: none;
+}
+
+header > nav > a:hover {
+    color: var(--primary-color);
+}
+
+header > nav > a > div {
+    padding: 0.5rem 1.0rem;
+    border: 3px solid var(--primary-color);
+    border-radius: 12px;
+    color: var(--primary-color);
+    font-weight: var(--txt-wt-bd);
+}
+
+header > nav > a > div:hover {
+    color: var(--txt-clr-dk);
+    background: var(--primary-color);
+}
