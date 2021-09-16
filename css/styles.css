@@ -10,7 +10,9 @@
     --margin-sides: 8rem;
 }
 
+/* ---------------------------- */
 /* Basic settings for all pages */
+/* ---------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -29,11 +31,16 @@ body {
     flex-direction: column;
 }
 
+/* --------------------------- */
 /* Styles for header component */
+/* --------------------------- */
 header {
+    height: 50px;
+    position: relative;
     align-items: center;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     margin: 1.4rem var(--margin-sides);
 }
 
@@ -103,4 +110,130 @@ header > nav > a > div {
 header > nav > a > div:hover {
     color: var(--txt-clr-dk);
     background: var(--primary-color);
+}
+
+.burger {
+    cursor: pointer;
+    display: none;
+    height: 35px;
+    width: 35px;
+    display: none;
+}
+
+.burger > div {
+    width: 25px;
+    height: 3px;
+    border-radius: 100px;
+    background: var(--primary-color);
+}
+
+.burger > div::before, .burger > div::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    border-radius: 100px;
+    background: var(--primary-color);
+    transition: all ease-out 300ms;
+}
+
+.burger > div::before {
+    transform: translateY(-8px);
+}
+
+.burger > div::after {
+    transform: translateY(8px);
+}
+
+
+@media (max-width: 1780px) {
+    header > nav > a {
+        margin-left: 4rem;
+    }
+}   
+
+@media (max-width: 1640px) {
+    header > nav > a {
+        margin-left: 3rem;
+    }
+}   
+
+@media (max-width: 1490px) {
+    header > nav {
+        grid-column: -1 / -7;
+    }
+    
+    :root {
+        --margin-sides: 4rem;
+    }
+}   
+
+@media (max-width: 1380px) {
+    header > section {
+        margin-left: 2rem;
+    }   
+
+    header > section > div {
+        margin-right: 1.5rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    header > section {
+        display: none;
+    }
+
+    header > nav {
+        grid-column: -1 / -9
+    }
+}
+
+/* mobile view for header */
+@media (max-width: 900px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    header > nav {
+        background: var(--bg-color);
+        flex-direction: column;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        height: calc(100vh - 50px);
+        justify-content: space-around;
+        transform: translateX(150%);
+        transition: all ease-out 300ms;
+    }
+
+    header > nav > a {
+        margin: 0;
+        opacity: 1;
+    }
+
+    .burger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-row: 1;
+        grid-column: -1;
+    }
+
+    .nav-active {
+        transform: translateX(0);
+    }
+
+    .burger-open div::before {
+       transform: translateY(0); 
+    }
+        
+    .burger-open div::after {
+       transform: translateY(0); 
+    }
+        
+}
+
+@media (max-width: 400px) {
+    :root {
+        --margin-sides: 2.5rem;
+    }
 }
