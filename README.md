@@ -19,7 +19,7 @@ global styles, "page_name.css" contains page specific styling.
 components across the site, "main.js" handles modules and functions.
 
 - Both of the JS files import dependencies from their respective subdirectories
-located in the root/js directory.
+located in the ./js directory.
 
 ```
 .
