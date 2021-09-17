@@ -65,7 +65,7 @@ located in the ./js directory.
 The hosting and SSL for this project are provided by Netlify.
 
 ## Contributors
-@author: Michael Arnold
+@author: Michael Arnold \
 @contact: me@michaelarnold.io
 
 ## License
