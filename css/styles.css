@@ -1,4 +1,12 @@
+/* ***********************************************************************
+/* This file contains styles for registered reusable components as well as 
+/* styling that carries across all pages of the website
+/* ***********************************************************************
+
+/* --------------------------------------------- */
 /* Color palette, font weights, and side margins */
+/* --------------------------------------------- */
+
 :root {
     --bg-color: #212121;
     --primary-color: #62FA88;
@@ -10,9 +18,22 @@
     --margin-sides: 8rem;
 }
 
+@media (max-width: 1490px) {
+    :root {
+        --margin-sides: 4rem;
+    }
+}
+
+@media (max-width: 400px) {
+    :root {
+        --margin-sides: 2.5rem;
+    }
+}
+
 /* ---------------------------- */
 /* Basic settings for all pages */
 /* ---------------------------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -31,9 +52,16 @@ body {
     flex-direction: column;
 }
 
+body.lock-scroll {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+
 /* --------------------------- */
 /* Styles for header component */
 /* --------------------------- */
+
 header {
     height: 50px;
     position: relative;
@@ -162,10 +190,6 @@ header > nav > a > div:hover {
     header > nav {
         grid-column: -1 / -7;
     }
-    
-    :root {
-        --margin-sides: 4rem;
-    }
 }   
 
 @media (max-width: 1380px) {
@@ -188,7 +212,7 @@ header > nav > a > div:hover {
     }
 }
 
-/* mobile view for header */
+/* mobile view for header & navbar */
 @media (max-width: 900px) {
     body {
         overflow-x: hidden;
@@ -210,16 +234,16 @@ header > nav > a > div:hover {
         opacity: 1;
     }
 
+    .nav-active {
+        transform: translateX(0);
+    }
+
     .burger {
         display: flex;
         align-items: center;
         justify-content: center;
         grid-row: 1;
         grid-column: -1;
-    }
-
-    .nav-active {
-        transform: translateX(0);
     }
 
     .burger-open div::before {
@@ -229,11 +253,9 @@ header > nav > a > div:hover {
     .burger-open div::after {
        transform: translateY(0); 
     }
-        
 }
 
-@media (max-width: 400px) {
-    :root {
-        --margin-sides: 2.5rem;
-    }
-}
+
+/* --------------------------- */
+/* Styles for footer component */
+/* --------------------------- */

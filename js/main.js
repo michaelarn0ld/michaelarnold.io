@@ -1,11 +1,16 @@
-const mobileNavbarSlide = () => {
-    const burger = document.querySelector('.burger')
-    const nav = document.querySelector('.nav-links')
+/* ----------------
+ *  Module Imports
+ * ---------------- */
+ 
+import { mobileNavbarView } from './modules/MobileNavbarView.mjs'
 
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('nav-active')
-        burger.classList.toggle('burger-open')
-    })
+
+/* ------
+ *  Main
+ * ------ */
+
+const main = () => {
+    mobileNavbarView()
 }
 
-mobileNavbarSlide()
+main()
