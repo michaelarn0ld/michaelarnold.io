@@ -34,6 +34,7 @@ located in the ./js directory.
 |        |-- post_2.html
 |        |-- ...
 |        |-- post_n.html
+|
 |-- js
 |    |-- main.js
 |    |-- modules
@@ -44,6 +45,7 @@ located in the ./js directory.
 |    |-- components
 |        |-- Header.js
 |        |-- Footer.js
+|
 |-- css
 |   |-- styles.css
 |   |-- index.css
