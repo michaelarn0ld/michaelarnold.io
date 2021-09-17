@@ -12,21 +12,14 @@ bio, blog, and contact pages.
 ## Architecture
 All assets of the website abide by the following rules:
 
-- Sections without children are stored in the root directory.
-
-- Sections with children warrant a subdirectory, stored in the root directory.
-
-- CSS, JS, and IMG assets all warrant their own subdirectories, stored in the 
-root directory.
-
 - Each page contains two CSS files; "styles.css" handles component styling and
 global styles, "page_name.css" contains page specific styling.
 
-- Each page loads two Javascript files; "components.js" handles reusable
-components across the site, "main.js" handles modules and functions used.
+- Each page loads two JS files; "components.js" handles reusable
+components across the site, "main.js" handles modules and functions.
 
 - Both of the JS files import dependencies from their respective subdirectories
-locaed in the root/js directory.
+located in the root/js directory.
 
 ```
 .
