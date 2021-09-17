@@ -14,7 +14,7 @@
  *                    through the string, remove each character from the node
  *                    along the way.
  *                  
- *                  - When the node is empty, choose the next element of the 
+ *                  - When the node is empty, choose the next string of the 
  *                    array.
  *
  *                  - Keep the last string of the input array displayed on
@@ -23,7 +23,7 @@
  * 
  * The function requires three arguments: a target HTML element where the text
  * will be typed, a cursor HTML element which sits in front of the target 
- * element, and an array of words to be typed.
+ * element, and an array of strings to be typed.
  *
  * The cursor element must be an adjacent child of the same parent as the
  * target element. For example:
@@ -47,7 +47,7 @@ const Typewriter = (element, cursor, words) => {
         delay += 1500           // pause before typing next word
         let typewriter = ""
         for (let char of word) {
-            delay += 100
+            delay += 100            // delay adding chars to current word
             setTimeout( () => {
                 typewriter += char
                 element.innerHTML = typewriter
@@ -56,9 +56,9 @@ const Typewriter = (element, cursor, words) => {
         if (i != words.length) {    // keep the last word displayed on screen
         delay += 2000               // allow the typed word to briefly pause
             for (let char of word) {
-                delay += 100
+                delay += 100        // delay deleting chars from current word
                 setTimeout( () => {
-                    typewriter = typewriter.slice(0,-1) // delete character...
+                    typewriter = typewriter.slice(0,-1) // delete last char...
                     element.innerHTML = typewriter      // ...from end of word
                 }, delay)
             }
