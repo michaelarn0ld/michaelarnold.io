@@ -2,7 +2,7 @@
  *  Module Imports
  * ---------------- */
  
-import { mobileNavbarView } from './modules/MobileNavbarView.mjs'
+import { mobileNavbarView } from './modules/MobileNavbarView.js'
 
 
 /* ------
