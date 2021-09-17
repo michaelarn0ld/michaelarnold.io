@@ -61,6 +61,7 @@ located in the ./js directory.
 |   |-- ...
 |
 |-- README.md
+|-- .gitignore
 ```
 
 ## Hosting

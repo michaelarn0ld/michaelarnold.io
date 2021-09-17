@@ -18,7 +18,7 @@
  *
  * ----------------------------------------------------------------- */
 
-const mobileNavbarView = () => {
+const MobileNavbarView = () => {
     const hamburgerMenu = document.querySelector('.burger')
     const navbarItems = document.querySelector('.nav-links')
 
@@ -29,4 +29,4 @@ const mobileNavbarView = () => {
     })
 }
 
-export { mobileNavbarView }
+export { MobileNavbarView }
