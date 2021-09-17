@@ -24,7 +24,7 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 900px) {
     :root {
         --margin-sides: 2.5rem;
     }
@@ -224,7 +224,9 @@ header > nav > a > div:hover {
         grid-column: 1 / -1;
         grid-row: 2;
         height: calc(100vh - 50px);
-        justify-content: space-around;
+        width: 100vw;
+        padding-bottom: 150px;
+        justify-content: space-evenly;
         transform: translateX(150%);
         transition: all ease-out 300ms;
     }
@@ -235,7 +237,7 @@ header > nav > a > div:hover {
     }
 
     .nav-active {
-        transform: translateX(0);
+        transform: translateX(-2.5rem);
     }
 
     .burger {
