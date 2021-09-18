@@ -104,7 +104,6 @@ main > article > section {
 
 .cursor-gone {
     opacity: 0;
-    transition: all ease 200ms;
 }
 
 .hero-cta {

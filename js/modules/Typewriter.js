@@ -43,8 +43,8 @@ const Typewriter = (element, cursor, words) => {
     let i = 0           // keep track of what word in the array we are at
 
     for (let word of words) {
-        i++                     // i = 1 means first word being examined
-        delay += 1500           // pause before typing next word
+        i++                               // i = 1 -> first word being examined
+        i > 1 ? delay += 1500 : delay += 300   // pause before typing next word
         let typewriter = ""
         for (let char of word) {
             delay += 100            // delay adding chars to current word
@@ -62,10 +62,13 @@ const Typewriter = (element, cursor, words) => {
                     element.innerHTML = typewriter      // ...from end of word
                 }, delay)
             }
-        } else {            // add period and remove cursor from last word
-            delay += 500
+        } else {            
+            delay += 100                // add period to end
             setTimeout( () => {
                 element.innerHTML += "<span>.</span>"   
+            }, delay)                                  
+            delay += 2750                // remove cursor from end
+            setTimeout( () => {
                 cursor.classList.remove("hero-cursor")
                 cursor.classList.add("cursor-gone")
             }, delay)                                  
