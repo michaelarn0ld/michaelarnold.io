@@ -15,11 +15,12 @@ All assets of the website abide by the following rules:
 - Each page contains two CSS files; "styles.css" handles component styling and
 global styles, "page_name.css" contains page specific styling.
 
-- Each page loads two JS files; "components.js" handles reusable
-components across the site, "main.js" handles modules and functions.
+- Each page loads multiple JS files; "component_name.js" is reserved for
+reusable components across the site, "main.js" handles modules and functions.
 
-- Both of the JS files import dependencies from their respective subdirectories
-located in the ./js directory.
+- The "main.js" file imports dependencies from the ./js/modules directory. Note
+that "main.js" does not contain any documentation for its imports; to see module
+specific documentation, please view the file located at the import path.
 
 ```
 .
