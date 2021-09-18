@@ -1,0 +1,45 @@
+
+/* ***********************************************************************
+/* This file contains styles for the default display of pages under
+/* construction
+/* ***********************************************************************
+
+/* --------------------------------------------- */
+/* Color palette, font weights, and side margins */
+/* --------------------------------------------- */
+
+:root {
+    --bg-color: #212121;
+    --primary-color: #62FA88;
+    --txt-clr-dk: #212121;
+    --txt-clr-lt: #F5F5F5;
+    --txt-sz-sm: 1.3rem;
+    --txt-wt-lt: 200;
+    --txt-wt-bd: 500;
+    --margin-sides: 8rem;
+}
+
+@media (max-width: 1490px) {
+    :root {
+        --margin-sides: 4rem;
+    }
+}
+
+@media (max-width: 900px) {
+    :root {
+        --margin-sides: 2.5rem;
+    }
+}
+
+.construction {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.construction > h1 > span {
+    color: var(--primary-color);
+}
+
