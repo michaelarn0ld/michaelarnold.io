@@ -36,4 +36,5 @@ class Header extends HTMLElement {
     }
 }
 
-export { Header }
+// export { Header }
+customElements.define('header-component', Header)
