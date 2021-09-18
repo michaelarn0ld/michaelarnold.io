@@ -219,6 +219,7 @@ header > nav > a > div:hover {
     }
 
     header > nav {
+        z-index: 10000;
         background: var(--bg-color);
         flex-direction: column;
         grid-column: 1 / -1;
