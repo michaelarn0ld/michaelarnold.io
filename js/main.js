@@ -4,6 +4,7 @@
  
 import { MobileNavbarView } from './modules/MobileNavbarView.js'
 import { Typewriter } from './modules/Typewriter.js'
+import { HeroGSAP } from './modules/HeroGSAP.js'
 
 
 /* -----------------------
@@ -28,7 +29,7 @@ const heroWords = [
 
 const main = () => {
     MobileNavbarView()
-    Typewriter(heroSpan, heroCursor, heroWords)
+    HeroGSAP(() => Typewriter(heroSpan, heroCursor, heroWords))
 }
 
 main()
