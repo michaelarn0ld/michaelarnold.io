@@ -15,7 +15,7 @@ import { HeroGSAP } from './modules/HeroGSAP.js'
 const heroSpan = document.querySelector("#hero-txt")    
 const heroCursor = document.querySelector(".hero-cursor")
 const heroWords = [                                    
-    'a Melophile',
+    'an Autodidact',
     'a Technologist',
     'an Engineer'
 ]
