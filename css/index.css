@@ -148,6 +148,7 @@ main > article > section {
 /* -------------------- */
 
 main > svg {
+    opacity: 0;
     margin-top: 85px;
     grid-column: -1 / -8;
 }

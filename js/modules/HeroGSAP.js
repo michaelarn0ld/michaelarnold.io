@@ -42,19 +42,27 @@ const HeroGSAP = (callback) => {
 
     // right side (svg graphic) of hero
     let right = gsap.timeline({ delay: 0.7 })
-    right.from("#cpu-svg", {opacity: 0, y: 20, duration: 0.4})
-    right.from("#Path_7", {y: 0, duration: 1}, 0.7)
+    right.fromTo(
+        "#cpu-svg", 
+        {opacity: 0, y: 30},
+        {opacity: 1, y: 0, duration: 0.4}
+    )
     right.from("#Path_6", {y: -17, duration: 1}, 0.7)
+    right.from("#Path_7", {y: 0, duration: 1}, 0.7)
+    //----------------------------------------------------------
     right.from("#Path_13", {y: 238, duration: 1}, 0.7)
     right.from("#Path_14", {y: 246, duration: 1}, 0.7)
+    //----------------------------------------------------------
     right.from("#Path_16", {y: 100, x: 200,  duration: 1}, 0.7)
     right.from("#Path_17", {y: -72, x: 100,  duration: 1}, 0.7)
+    //----------------------------------------------------------
     right.from("#Path_10", {y: 155, x: 170, duration: 1}, 0.7)
     right.from("#Path_11", {y: -17, x: 73, duration: 1}, 0.7)
+    //----------------------------------------------------------
     right.from("#Path_18", {y: -150, duration: 1}, 0.7)
     right.from("#Path_19", {y: -150, duration: 1}, 0.7)
     right.from("#Path_20", {y: -150, duration: 1}, 0.7)
-    right.from("#Path_21", {y: -130, duration: 1}, 0)
+    right.from("#Path_21", {y: -130, duration: 1}, 0.7)
 }
 
 
