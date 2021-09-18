@@ -31,6 +31,26 @@
     }
 }
 
+@media (max-width: 590px) {
+    :root {
+        --txt-sz-md: 1.3rem;
+        --txt-sz-lg: 3.0rem;
+    }
+}
+
+@media (max-width: 490px) {
+    :root {
+        --txt-sz-lg: 2.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    :root {
+        --txt-sz-lg: 2.1rem;
+    }
+}
+
+
 /* ------------------------------ */
 /* Common styles for hero section
 /* ------------------------------ */
@@ -143,11 +163,69 @@ main > article > section {
     cursor: pointer;
 }
 
+@media (max-width: 1840px) {
+    main > article {
+        grid-column: 1 / 6;
+    }
+}
+
+@media (max-width: 1400px) {
+    main > article {
+        grid-column: 1 / 7;
+    }
+}
+
+@media (max-width: 1200px) {
+    main > article {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main > article > section {
+        text-align: center;
+    }
+
+    .hero-cta {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .hero-cta > button {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 590px) {
+    main > article {
+        margin-top: 65px;
+    }
+
+    .hero-cta > button {
+        padding: 0.5rem 1.0rem;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    .hero-cta > button {
+        margin-bottom: 50px;
+    }
+}
+
+
 /* -------------------- */
 /* Styling for hero svg
 /* -------------------- */
 
 main > svg {
+    display: none;
     opacity: 0;
     margin-top: 85px;
     grid-column: -1 / -8;
