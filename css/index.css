@@ -31,15 +31,19 @@
     }
 }
 
-/* ---------------------------- */
-/* Common styles for index.html
-/* ---------------------------- */
+/* ------------------------------ */
+/* Common styles for hero section
+/* ------------------------------ */
 
 main {
     margin: 0 var(--margin-sides);
     display: grid;
     grid-template-columns: repeat(12, 1fr);
 }
+
+/* ------------------------ */
+/* Styling for hero content
+/* ------------------------ */
 
 main > article {
     grid-column: 1 / 5;
@@ -121,7 +125,27 @@ main > article > section {
     color: var(--txt-clr-dk);
 }
 
+.hero-btn-bio:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(98, 250, 136, 0.6);
+}
+
 .hero-btn-projects {
     background: transparent;
     color: var(--primary-color);
+}
+
+.hero-btn-projects:hover {
+    background: var(--primary-color);
+    color: var(--txt-clr-dk); 
+    cursor: pointer;
+}
+
+/* -------------------- */
+/* Styling for hero svg
+/* -------------------- */
+
+main > svg {
+    margin-top: 85px;
+    grid-column: -1 / -8;
 }
