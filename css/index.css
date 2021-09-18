@@ -51,6 +51,7 @@ main > article {
 }
 
 main > article > h4 {
+    opacity: 0;
     color: var(--primary-color);
     display: flex;
     justify-content: flex-start;
@@ -73,6 +74,7 @@ main > article > h4 > p {
 }
 
 main > article > section {
+    opacity: 0;
     font-size: var(--txt-sz-lg);
     font-weight: var(--txt-wt-bd);
     margin-bottom: 60px;
@@ -106,6 +108,7 @@ main > article > section {
 }
 
 .hero-cta {
+    opacity: 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;

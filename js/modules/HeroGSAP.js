@@ -23,7 +23,7 @@
 const HeroGSAP = (callback) => {
     
     // left side (text content & buttons) of hero
-    let left = gsap.timeline({ onComplete: callback })
+    let left = gsap.timeline({ delay: 0.7, onComplete: callback })
     left.fromTo(
         ".hero-content > h4",
         {opacity: 0, y: 30},
