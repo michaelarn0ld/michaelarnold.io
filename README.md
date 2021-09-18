@@ -41,7 +41,6 @@ located in the ./js directory.
 |    |   |-- MobileNavbarView.mjs
 |    |   |-- ...
 |    |
-|    |-- components.js
 |    |-- components
 |        |-- Header.js
 |        |-- Footer.js
