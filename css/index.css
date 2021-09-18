@@ -268,6 +268,7 @@ main > svg {
 
 @media (max-width: 500px) {
     main > svg {
+        height: calc((100vw - 5rem) * 0.75);
         margin-top: 50px;
     }
 }
@@ -277,6 +278,5 @@ main > svg {
         margin-top: 20px;
     }
 }
-
 
 
