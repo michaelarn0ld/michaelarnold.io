@@ -133,7 +133,7 @@ main > article > section {
     align-items: center;
 }
 
-.hero-cta > button {
+.hero-cta > a > button {
     font-weight: var(--txt-wt-bd);
     font-size: var(--txt-sz-md);
     margin-right: 2.2em; 
