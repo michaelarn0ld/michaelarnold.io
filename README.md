@@ -8,6 +8,7 @@ bio, blog, and contact pages.
 - HTML5
 - CSS3
 - JavaScript
+- GSAP
 
 ## Architecture
 All assets of the website abide by the following rules:
@@ -40,6 +41,8 @@ specific documentation, please view the file located at the import path.
 |    |-- main.js
 |    |-- modules
 |    |   |-- MobileNavbarView.mjs
+|    |   |-- Typewriter.js
+|    |   |-- HeroGSAP.js
 |    |   |-- ...
 |    |
 |    |-- components
