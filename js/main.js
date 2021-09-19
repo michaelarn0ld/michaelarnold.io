@@ -29,6 +29,8 @@ const heroWords = [
 
 const main = () => {
     MobileNavbarView()
+
+    // Hero GSAP calls Typewriter after it finishes the animation
     HeroGSAP(() => Typewriter(heroSpan, heroCursor, heroWords))
 }
 
