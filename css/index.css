@@ -67,7 +67,7 @@ main {
 
 main > article {
     grid-column: 1 / 5;
-    margin-top: 115px;
+    margin-top: calc(165px + 2.8rem); 
 }
 
 main > article > h4 {
@@ -200,7 +200,7 @@ main > article > section {
 
 @media (max-width: 590px) {
     main > article {
-        margin-top: 65px;
+        margin-top: calc(115px + 2.8rem); 
     }
 
     .hero-cta > button {
@@ -211,7 +211,7 @@ main > article > section {
 
 @media (max-width: 500px) {
     main > article {
-        margin-top: 20px;
+        margin-top: calc(70px + 2.8rem);
     }
 
     main > article > h4 {
@@ -241,7 +241,7 @@ main > article > section {
 main > svg {
     width: 100%;
     opacity: 0;
-    margin-top: 85px;
+    margin-top: calc(135px + 2.8rem);
     grid-column: -1 / -8;
 }
 
@@ -269,13 +269,13 @@ main > svg {
 @media (max-width: 500px) {
     main > svg {
         height: calc((100vw - 5rem) * 0.75);
-        margin-top: 50px;
+        margin-top: calc(100px + 2.8rem);
     }
 }
 
 @media (max-width: 400px) {
     main > svg {
-        margin-top: 20px;
+        margin-top: calc(70px + 2.8rem);
     }
 }
 

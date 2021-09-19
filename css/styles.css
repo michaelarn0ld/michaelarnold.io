@@ -65,12 +65,19 @@ body.lock-scroll {
 
 header {
     height: 50px;
-    position: relative;
+    position: fixed;
+    top: 0;
+    z-index: 10000;
     align-items: center;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    margin: 1.4rem var(--margin-sides);
+    /*margin: 0 var(--margin-sides)*/;
+    padding-left: var(--margin-sides);
+    padding-right: var(--margin-sides);
+    padding-bottom: calc(1.4rem + 54px);
+    padding-top: 1.4rem;
+    background: var(--bg-color);
 }
 
 header > a {
@@ -217,6 +224,10 @@ header > nav > a > div:hover {
 @media (max-width: 900px) {
     body {
         overflow-x: hidden;
+    }
+
+    header {
+        padding-bottom: calc(1.4rem + 34px);
     }
 
     header > nav {
