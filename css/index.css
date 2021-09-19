@@ -193,7 +193,7 @@ main > article > section {
         justify-content: space-evenly;
     }
 
-    .hero-cta > button {
+    .hero-cta > a > button {
         margin-right: 0;
     }
 }
@@ -203,7 +203,7 @@ main > article > section {
         margin-top: calc(115px + 2.8rem); 
     }
 
-    .hero-cta > button {
+    .hero-cta > a > button {
         padding: 0.5rem 1.0rem;
         border-radius: 12px;
     }
@@ -228,7 +228,7 @@ main > article > section {
         flex-direction: column;
     }
 
-    .hero-cta > button {
+    .hero-cta > a > button {
         margin-bottom: 30px;
     }
 }
