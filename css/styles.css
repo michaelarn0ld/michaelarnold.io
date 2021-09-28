@@ -274,3 +274,13 @@ header > nav > a > div:hover {
 /* --------------------------- */
 /* Styles for footer component */
 /* --------------------------- */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px var(--margin-sides);
+    font-size: var(--txt-sz-sm);
+    font-weight: var(--txt-wt-lt);
+    text-align: center;
+}
+

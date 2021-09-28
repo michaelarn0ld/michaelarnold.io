@@ -33,6 +33,7 @@
 
 @media (max-width: 590px) {
     :root {
+        --txt-sz-sm: 1rem;
         --txt-sz-md: 1.3rem;
         --txt-sz-lg: 3.0rem;
     }
@@ -287,3 +288,66 @@ main > svg {
 }
 
 
+/* ------------------------- */
+/* Styling for intro content
+/* ------------------------- */
+
+.website-intro {
+    margin: 0 var(--margin-sides);
+    margin-top: 200px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.website-intro > h4 {
+    color: var(--primary-color);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    white-space: nowrap;
+    margin-bottom: 40px;
+}
+
+.website-intro > h4 > div {
+    height: 2px;
+    width: 4rem;
+    border-radius: 10px;
+    background: var(--primary-color);
+}
+
+.website-intro > h4 > p {
+    font-weight: var(--txt-wt-bd);
+    margin: 0 1.5rem;
+    font-size: var(--txt-sz-sm);
+}
+
+.website-intro > p {
+    font-size: var(--txt-sz-md);
+    line-height: 2.0;
+}
+
+.website-intro > p > span {
+    color: var(--primary-color);
+}
+
+.website-intro > p > a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+    .website-intro {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1100px) {
+    .website-intro {
+        margin-top: 100px;
+    }
+}
