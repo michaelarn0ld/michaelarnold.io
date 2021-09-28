@@ -263,19 +263,26 @@ main > svg {
 @media (max-width: 1200px) {
     main > svg {
         grid-column: 1 / -1;
+        margin-top: calc(70px + 2.8rem);
+    }
+}
+
+@media (max-width: 850px) {
+    main > svg {
+        margin-top: calc(50px + 2.8rem);
     }
 }
 
 @media (max-width: 500px) {
     main > svg {
         height: calc((100vw - 5rem) * 0.75);
-        margin-top: calc(100px + 2.8rem);
+        margin-top: calc(30px + 2.8rem);
     }
 }
 
 @media (max-width: 400px) {
     main > svg {
-        margin-top: calc(70px + 2.8rem);
+        margin-top: 1.8rem;
     }
 }
 
