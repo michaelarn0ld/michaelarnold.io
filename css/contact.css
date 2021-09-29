@@ -65,7 +65,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    margin-bottom: 90px;
 }
 
 
@@ -120,6 +120,7 @@ main{
 }
 
 .form-col1 > div > div {
+    position: relative;
     border: 2px solid #d1d1d1;
     border-radius: 5px;
     display: flex;
@@ -166,6 +167,7 @@ main{
     color: var(--txt-clr-lt);
     padding: 13px 35px;
     font-size: var(--txt-sz-sm);
+    font-weight: var(--txt-wt-bd);
     border-radius: 10px;
     width: fit-content;
     align-self: center;
@@ -173,6 +175,9 @@ main{
     margin-top: 15px;
 }
 
+.form-col2 > button:hover {
+    background: #808080;
+}
 
 /* ------------------------- */
 /* Styles for mobile contact

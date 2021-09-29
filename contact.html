@@ -32,32 +32,32 @@
                 <div>
                     <label for="name">Name</label>
                     <div>
-                      <input name="name" type="text" id="form-name"/>
+                      <input required name="name" type="text" id="form-name"/>
                     </div>
                 </div>
                 <div>
                     <label for="email">Email Address</label>
                     <div>
-                      <input name="email" type="text" id="form-email"/>
+                      <input required name="email" type="email" id="form-email"/>
                     </div>
                 </div>
                 <div>
                     <label for="subject">Subject</label>
                     <div>
-                      <input name="subject" type="text" id="form-subject"/>
+                      <input required name="subject" type="text" id="form-subject"/>
                     </div>
                 </div>
             </div>
             <div class="form-col2">
                 <label for="message">Message</label>
                 <div>
-                  <textarea rows="7" name="message" type="text" 
+                  <textarea required rows="7" name="message" type="text" 
                       id="form-message"></textarea>
                 </div>
                 <button type="submit">Let's Connect</button>
             </div>
         </form>
-        <footer-component></footer-component>
     </div>
+    <footer-component></footer-component>
     <script type="module" src="./js/main.js"></script>
 </body>
