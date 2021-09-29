@@ -64,14 +64,14 @@ main{
 #contact-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 
-/* ------------------------------------------- */
-/* Styles for contact header, form, and extras
-/* ------------------------------------------- */
+/* ------------------------- */
+/* Styles for contact header
+/* ------------------------- */
 
 .contact-header {
     margin-top: calc(125px + 2.8rem);
@@ -97,6 +97,11 @@ main{
     color: var(--primary-color);
 }
 
+
+/* ----------------------- */
+/* Styles for contact form
+/* ----------------------- */
+
 .contact-form {
     display: flex;
     border-radius: 15px;
@@ -104,6 +109,7 @@ main{
     background: var(--txt-clr-lt);
     color: var(--txt-clr-dk);
     font-size: 1.1rem;
+    margin-top: 30px;
 }
 
 .form-col1 > div {
@@ -165,4 +171,58 @@ main{
     align-self: center;
     cursor: pointer;
     margin-top: 15px;
+}
+
+
+/* ------------------------- */
+/* Styles for mobile contact
+/* ------------------------- */
+
+@media (max-width: 1000px){
+    .contact-header{
+        grid-column: 2/-1;
+    }
+
+    .contact-message{
+        grid-column: 2/-2;
+    }
+
+    .contact-form {
+        flex-direction: column;
+        width: 50vw;
+    }
+    
+    .form-col1 > div > div {
+        width: 100%;
+    }
+
+    .form-col2 {
+        margin-left: 0;
+    }
+
+    .form-col2 > div > textarea {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px){
+    .contact-header{
+        margin-top: calc(75px + 2.8rem);
+    }
+
+    .contact-form {
+        width: 60vw;
+    }
+}
+
+@media (max-width: 500px){
+    .contact-form {
+        width: 70vw;
+    }
+}
+
+@media (max-width: 450px){
+    .contact-form {
+        width: 78vw;
+    }
 }
