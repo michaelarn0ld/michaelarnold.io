@@ -13,18 +13,20 @@
 </head>
 <body>
     <header-component></header-component>
-    <main>
-        <div class="contact-header">
-            <p>Get in Touch<span>.</span></p>
-        </div>
-        <div class="contact-message">
-            <p>
-                If you want to connect, talk about collaborating on a project,
-                or ask questions about any of <a href="./work.html">my work</a>, 
-                feel free to fill out the contact form below or send an email
-                to <a href="mailto:me@michaelarnold.io">me@michaelarnold.io</a>
-            </p>
-        </div>
+    <div id="contact-content">
+        <main>
+            <div class="contact-header">
+                <p>Get in Touch<span>.</span></p>
+            </div>
+            <div class="contact-message">
+                <p>
+                    If you want to connect, talk about collaborating on a project,
+                    or ask questions about any of <a href="./work.html">my work</a>, 
+                    feel free to fill out the contact form below or send an email
+                    to <a href="mailto:me@michaelarnold.io">me@michaelarnold.io</a>
+                </p>
+            </div>
+        </main>
         <form class="contact-form" action="">
             <div class="form-col1">
                 <div>
@@ -49,13 +51,13 @@
             <div class="form-col2">
                 <label for="message">Message</label>
                 <div>
-                  <textarea rows="20" name="message" type="text" id="form-message"
-                            placeholder="Enter your message here"></textarea>
+                  <textarea rows="5" name="message" type="text" 
+                      id="form-message"></textarea>
                 </div>
                 <button type="submit">Let's Connect</button>
             </div>
         </form>
-    </main>
+    </div>
     <footer-component></footer-component>
     <script type="module" src="./js/main.js"></script>
 </body>
