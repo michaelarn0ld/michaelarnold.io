@@ -10,6 +10,7 @@
     <title>Michael Arnold</title>
     <script src="./js/components/Header.js" ></script>
     <script src="./js/components/Footer.js" ></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
     <header-component></header-component>
@@ -27,24 +28,24 @@
                 </p>
             </div>
         </main>
-        <form class="contact-form" action="">
+        <form class="contact-form" id="contact-form" action="">
             <div class="form-col1">
                 <div>
                     <label for="name">Name</label>
                     <div>
-                      <input required name="name" type="text" id="form-name"/>
+                      <input required name="user_name" type="text" id="form-name"/>
                     </div>
                 </div>
                 <div>
                     <label for="email">Email Address</label>
                     <div>
-                      <input required name="email" type="email" id="form-email"/>
+                      <input required name="user_email" type="email" id="form-email"/>
                     </div>
                 </div>
                 <div>
                     <label for="subject">Subject</label>
                     <div>
-                      <input required name="subject" type="text" id="form-subject"/>
+                      <input required name="user_subject" type="text" id="form-subject"/>
                     </div>
                 </div>
             </div>
