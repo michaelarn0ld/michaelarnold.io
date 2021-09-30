@@ -30,7 +30,7 @@ const EmailContactService = () => {
     // Wait until page has loaded to prepare form for submission to email 
     window.onload = () => {
         // grab the contact form from contact.html
-        const contactForm = document.getElementbyId('contact-form')
+        const contactForm = document.getElementById('contact-form')
         // when the contact form is submitted, use EmailJS to send an email
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault()                                         
