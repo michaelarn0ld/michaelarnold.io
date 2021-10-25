@@ -10,7 +10,7 @@ class Header extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <header>
-                <a href="./">michaelarnold<span>.</span>io</a>
+                <a href="/">michaelarnold<span>.</span>io</a>
                 <section>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="29.254" height="27.072" viewBox="0 0 29.254 27.072">
@@ -26,10 +26,10 @@ class Header extends HTMLElement {
                     </div>
                 </section>
                 <nav class="nav-links">
-                    <a href="./work.html">Work</a>
-                    <a href="./about.html">About</a>
-                    <a href="./blog/blog.html">Blog</a>
-                    <a href="./contact.html"><div>Contact Me</div></a>
+                    <a href="/work.html">Work</a>
+                    <a href="/about.html">About</a>
+                    <a href="/blog/blog.html">Blog</a>
+                    <a href="/contact.html"><div>Contact Me</div></a>
                 </nav>
                 <div class="burger">
                     <div></div>
