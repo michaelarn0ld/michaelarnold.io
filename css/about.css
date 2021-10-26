@@ -112,7 +112,8 @@ main > div {
 }
 
 .about-me-skills {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     margin-top: 3rem;
     justify-content: space-between;
 }
@@ -134,3 +135,16 @@ main > div {
     margin-right: 8px;
     background: var(--primary-color);
 }
+
+
+/* ------------------------- */
+/* Styles for mobile contact
+/* ------------------------- */
+
+@media (max-width: 768px){
+    .about-me-skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
