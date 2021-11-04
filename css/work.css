@@ -1,0 +1,106 @@
+/* ********************************************
+/* This file contains all styles for work.html
+/* ********************************************
+
+/* --------------------------------------------- */
+/* Color palette, font weights, and side margins */
+/* --------------------------------------------- */
+
+:root {
+    --bg-color: #212121;
+    --primary-color: #62FA88;
+    --txt-clr-dk: #212121;
+    --txt-clr-lt: #F5F5F5;
+    --txt-sz-sm: 1.3rem;
+    --txt-sz-md: 1.8rem;
+    --txt-sz-lg: 3.7rem;
+    --txt-wt-lt: 200;
+    --txt-wt-bd: 500;
+    --margin-sides: 8rem;
+}
+
+@media (max-width: 1490px) {
+    :root {
+        --margin-sides: 4rem;
+    }
+}
+
+@media (max-width: 900px) {
+    :root {
+        --margin-sides: 2.5rem;
+    }
+}
+
+@media (max-width: 590px) {
+    :root {
+        --txt-sz-sm: 1rem;
+        --txt-sz-md: 1.3rem;
+        --txt-sz-lg: 3.0rem;
+    }
+}
+
+@media (max-width: 490px) {
+    :root {
+        --txt-sz-lg: 2.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    :root {
+        --txt-sz-lg: 2.1rem;
+    }
+}
+
+
+/* -------------------------- */
+/* Main styling for work page */
+/* -------------------------- */
+main {
+    margin: 0 var(--margin-sides);
+    margin-top: calc(125px + 2.8rem);
+}
+
+.work-item {
+    margin-bottom: 100px;
+}
+
+.work-item-title {
+    color: var(--primary-color);
+    display: flex;
+    justify-content: flex-start;
+    font-size: var(--txt-sz-sm);
+    align-items: center;
+    white-space: nowrap;
+    margin-bottom: 20px;
+
+}
+
+.work-item-title > div {
+    height: 2px;
+    width: 4rem;
+    border-radius: 10px;
+    margin-right: 1.5rem;
+    background: var(--primary-color);
+}
+
+.work-item-name {
+    font-weight: var(--txt-wt-bd);
+    font-size: var(--txt-sz-lg);
+    margin-bottom: 20px;
+}
+
+.work-item-name > span {
+    color: var(--primary-color);
+}
+
+.work-item-content {
+    font-size: var(--txt-sz-sm);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.work-item-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
