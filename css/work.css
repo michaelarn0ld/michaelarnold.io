@@ -103,12 +103,3 @@ main {
     color: var(--primary-color);
     text-decoration: none;
 }
-
-.work-item-section {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-}
-
-.work-item-section-left {
-    grid-column: 1 / 6;
-}
