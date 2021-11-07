@@ -103,3 +103,19 @@ main {
     color: var(--primary-color);
     text-decoration: none;
 }
+
+button {
+    font-weight: var(--txt-wt-bd);
+    font-size: var(--txt-sz-md);
+    margin-right: 2.2em;
+    padding:0.6rem 1.5rem;
+    border-radius: 15px;
+    border: 3px solid var(--primary-color);
+    background: var(--primary-color);
+    color: var(--txt-clr-dk);
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(98, 250, 136, 0.6);
+}
