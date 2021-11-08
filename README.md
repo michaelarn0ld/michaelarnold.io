@@ -63,6 +63,9 @@ specific documentation, please view the file located at the import path.
 |   |-- linkedin.svg
 |   |-- ...
 |
+|-- resources
+|   |-- resume.pdf
+|
 |-- README.md
 |-- .gitignore
 ```
