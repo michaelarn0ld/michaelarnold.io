@@ -22,6 +22,7 @@ const heroCursor = document.querySelector(".hero-cursor")
 const heroWords = [                                    
     'an Autodidact',
     'a Technologist',
+    'a Polyglot',
     'an Engineer'
 ]
 
