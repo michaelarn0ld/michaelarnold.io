@@ -40,7 +40,7 @@ specific documentation, please view the file located at the import path.
 |-- js
 |    |-- main.js
 |    |-- modules
-|    |   |-- MobileNavbarView.mjs
+|    |   |-- MobileNavbarView.js
 |    |   |-- Typewriter.js
 |    |   |-- HeroGSAP.js
 |    |   |-- ...
