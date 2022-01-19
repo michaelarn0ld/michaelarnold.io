@@ -23,7 +23,7 @@
  * ----------------------------------------------------------------- */
 
 
-const EmailContactService = () => {
+export const EmailContactService = () => {
     // Connect to the EmailJS API with my key
     emailjs.init('user_TNTFrlyie1bK82cVI2YDb')
 
@@ -45,5 +45,3 @@ const EmailContactService = () => {
             })                                                                 
         }              
 }
-
-export { EmailContactService }
