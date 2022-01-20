@@ -18,7 +18,7 @@
  *
  * ----------------------------------------------------------------- */
 
-const MobileNavbarView = () => {
+export const MobileNavbarView = () => {
     const hamburgerMenu = document.querySelector('.burger')
     const navbarItems = document.querySelector('.nav-links')
 
@@ -28,5 +28,3 @@ const MobileNavbarView = () => {
         document.body.classList.toggle('lock-scroll')  // toggles scroll lock
     })
 }
-
-export { MobileNavbarView }

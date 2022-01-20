@@ -37,7 +37,7 @@
  *
  * ------------------------------------------------------------------------- */
 
-const Typewriter = (element, cursor, words) => {
+export const Typewriter = (element, cursor, words) => {
 
     let delay = 0       // keep track of global delay for setTimeout()
     let i = 0           // keep track of what word in the array we are at
@@ -74,7 +74,4 @@ const Typewriter = (element, cursor, words) => {
             }, delay)                                  
         }                                             
     }
-
 }
-
-export { Typewriter }

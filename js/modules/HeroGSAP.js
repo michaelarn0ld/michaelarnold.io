@@ -20,7 +20,7 @@
  *
  * ------------------------------------------------------------ */
 
-const HeroGSAP = (callback) => {
+export const HeroGSAP = (callback) => {
     
     // left side (text content & buttons) of hero
     let left = gsap.timeline({ delay: 0.7, onComplete: callback })
@@ -64,6 +64,3 @@ const HeroGSAP = (callback) => {
     right.from("#Path_20", {y: -150, duration: 1}, 0.7)
     right.from("#Path_21", {y: -130, duration: 1}, 0.7)
 }
-
-
-export { HeroGSAP }
