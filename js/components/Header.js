@@ -28,7 +28,7 @@ class Header extends HTMLElement {
                 <nav class="nav-links">
                     <a href="/work.html">Work</a>
                     <a href="/about.html">About</a>
-                    <a href="/blog/blog.html">Blog</a>
+                    <a href="/blog/blog.html">Zettels</a>
                     <a href="/contact.html"><div>Contact Me</div></a>
                 </nav>
                 <div class="burger">
