@@ -6,6 +6,7 @@ import { MobileNavbarView } from './modules/MobileNavbarView.js'
 import { Typewriter } from './modules/Typewriter.js'
 import { HeroGSAP } from './modules/HeroGSAP.js'
 import { EmailContactService } from './modules/EmailContactService.js'
+import { Zettelkasten } from './modules/Zettelkasten.js'
 
 
 /* -----------------------
@@ -37,6 +38,9 @@ const main = () => {
 
     // Hero GSAP calls Typewriter after it finishes the animation
     pageName == "" && HeroGSAP(() => Typewriter(heroSpan, heroCursor, heroWords))
+
+    // Zettelkasten for blog
+    pageName == "blog.html" && Zettelkasten()
 
     // Email Contact Service send emails from contact form submission
     pageName == "contact.html" && EmailContactService()
