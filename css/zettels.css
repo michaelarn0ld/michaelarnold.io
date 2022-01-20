@@ -76,13 +76,13 @@ main {
     cursor: pointer;
 }
 
-#zettels {
+#zettel-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
 }
 
-#zettels > div {
+#zettel-container > div {
     width: calc(100% - 140px);
     height: 200px;
     margin-bottom: 50px;

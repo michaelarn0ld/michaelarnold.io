@@ -1,17 +1,16 @@
-export const Zettelkasten = () => {
-    const zettels = Array.from(document.getElementById("zettels").children)
-    const tags = {}
-    // create a graph of tags
-    zettels.forEach(z => {
-        for (let tag of z.attributes) {
-            if (tag.name !== "id" && tag.name != "class") {
-                tags[tag.name] = tags[tag.name] === undefined ? [z] : [...tags[tag.name], z]
-            }
-        }
-    })
+import { zettels } from "./Zettels.js" 
 
-    console.log(tags)
+export const Zettelkasten = () => {
+
     const activeTags = new Set()
+    const tags = {}
+
+    const zettelContainer = document.getElementById("zettel-container")
+    zettels.forEach(z => {
+        z.attributes.forEach(tag => {
+            tags[tag] = tags[tag] === undefined ? [z] : [...tags[tag], z]
+        })
+    })
 
     const toggleActiveTag = (tag) => {
         if (activeTags.has(tag)) {
@@ -20,6 +19,22 @@ export const Zettelkasten = () => {
             activeTags.add(tag)
         }
         console.log(activeTags)
+        renderZettels()
+    }
+
+    const renderZettels = () => {
+        while(zettelContainer.firstChild) {
+            zettelContainer.removeChild(zettelContainer.lastChild)
+        }
+        activeTags.size === 0 ? 
+            zettels.forEach(z => {
+                zettelContainer.appendChild(makeZettelDiv(z))
+            })
+            : 
+            zettels.forEach(z => {
+                z.attributes.some(a => activeTags.has(a)) &&
+                    zettelContainer.appendChild(makeZettelDiv(z))
+            })
     }
 
     const makeTag = (tag) => {
@@ -29,13 +44,16 @@ export const Zettelkasten = () => {
         return element
     }
 
+    const makeZettelDiv = (zettel) => {
+        const zettelDiv = document.createElement("div")
+        zettelDiv.innerText = zettel.content
+        return zettelDiv
+    }
+
     const tagsElement = document.getElementById("tags")
     Object.keys(tags).forEach(t => tagsElement.appendChild(makeTag(t)))
 
     /*
      *TODO
-     - If activeTags is empty then render everything
-     - If activeTags contains stuff then only render elements that
-       have matching attributes
      * */
 }
