@@ -29,4 +29,5 @@ export const zettels = [
         attributes: ["java"],
         content: "Java"
     }
+
 ]

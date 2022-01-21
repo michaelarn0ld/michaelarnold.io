@@ -40,7 +40,7 @@ const main = () => {
     pageName == "" && HeroGSAP(() => Typewriter(heroSpan, heroCursor, heroWords))
 
     // Zettelkasten for blog
-    pageName == "blog.html" && Zettelkasten()
+    pageName == "zettels.html" && Zettelkasten()
 
     // Email Contact Service send emails from contact form submission
     pageName == "contact.html" && EmailContactService()

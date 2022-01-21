@@ -18,7 +18,8 @@ export const Zettelkasten = () => {
         } else {
             activeTags.add(tag)
         }
-        console.log(activeTags)
+        const thisTag = document.getElementById(tag)
+        thisTag.classList.toggle("active-zettel")
         renderZettels()
     }
 
@@ -38,10 +39,13 @@ export const Zettelkasten = () => {
     }
 
     const makeTag = (tag) => {
-        let element = document.createElement("div");
-        element.innerText = tag
-        element.onclick = () => toggleActiveTag(tag)
-        return element
+        const parent = document.createElement("div")
+        parent.id = tag
+        const child = document.createElement("div")
+        child.innerText = `#${tag}`
+        parent.appendChild(child)
+        parent.onclick = (e) => toggleActiveTag(tag)
+        return parent
     }
 
     const makeZettelDiv = (zettel) => {
@@ -52,8 +56,13 @@ export const Zettelkasten = () => {
 
     const tagsElement = document.getElementById("tags")
     Object.keys(tags).forEach(t => tagsElement.appendChild(makeTag(t)))
+    renderZettels()
 
     /*
      *TODO
+     - zk is a "lifelong project" -eliot
+     - visualize connections of zettels with UI graph / web 
+        * when you click on tags it highlights (with colors) the
+        nodes in the web that have a matching tag
      * */
 }
