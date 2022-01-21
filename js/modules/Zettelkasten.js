@@ -48,9 +48,15 @@ export const Zettelkasten = () => {
         return parent
     }
 
-    const makeZettelDiv = (zettel) => {
+    const makeZettelDiv = ({attributes, content, zetId}) => {
         const zettelDiv = document.createElement("div")
-        zettelDiv.innerText = zettel.content
+        let zettelTags = ""
+        attributes.forEach(a => zettelTags += `#${a} `)
+        zettelDiv.innerHTML = `
+            <h4>${zettelTags}</h4>
+            <p>${content}<span>.</span></p>
+            <a href="/zettels/${zetId}.html"><div>Read Zettel</div></a>
+        `
         return zettelDiv
     }
 

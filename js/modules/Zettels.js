@@ -3,31 +3,36 @@ export const zettels = [
     {
         id: 1,
         attributes: ["bash", "linux"],
-        content: "Bash/Linux"
+        content: "Shell Scripting, Interpretting, and Running Processes",
+        zetId: "202110062225"
     },
 
     {
         id: 2,
         attributes: ["bash"],
-        content: "Bash"
+        content: "Bash",
+        zetId: "202110062225"
     },
     
     {
         id: 3,
         attributes: ["linux"],
-        content: "Linux"
+        content: "Linux",
+        zetId: "202110062225"
     },
 
     {
         id: 4,
         attributes: ["algorithm"],
-        content: "Algorithm"
+        content: "Algorithm",
+        zetId: "202110062225"
     },
 
     {
         id: 5,
         attributes: ["java"],
-        content: "Java"
+        content: "Java",
+        zetId: "202110062225"
     }
 
 ]
