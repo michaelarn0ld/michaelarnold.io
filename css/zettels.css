@@ -98,6 +98,11 @@ article > p {
     line-height: 1.8;
 }
 
+p > a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
 #tags {
     width: 100%;
     color: var(--primary-color);
@@ -242,13 +247,23 @@ article > p {
     #tags {
         margin-bottom: 50px;
     }
+    
+    main {
+        margin-top: calc(115px + 2.8rem);
+    }
+}
+
+@media (max-width: 500px) {
+    #tags > div {
+        margin: 5px 5px;
+    }
+
+    main {
+        margin-top: calc(70px + 2.8rem);
+    }
 }
 
 @media (max-width: 400px) {
-    #tags > div {
-        margin: 20px 7px;
-    }
-
     #zettel-container > div {
         width: 280px;
     }
