@@ -29,21 +29,22 @@ specific documentation, please view the file located at the import path.
 |-- work.html
 |-- about.html
 |-- contact.html
-|-- blog
-|   |-- blog.html
-|   |-- posts
-|        |-- post_1.html
-|        |-- post_2.html
-|        |-- ...
-|        |-- post_n.html
+|-- zettels
+|   |-- zettels.html
+|   |-- {ZETTEL_ID}.html
+|   |-- ...
 |
 |-- js
 |    |-- main.js
+|    |-- data
+|    |   |-- Zettels.js
+|    |
 |    |-- modules
 |    |   |-- MobileNavbarView.js
 |    |   |-- Typewriter.js
 |    |   |-- HeroGSAP.js
-|    |   |-- ...
+|    |   |-- EmailContactService.js
+|    |   |-- Zettelkasten.js
 |    |
 |    |-- components
 |        |-- Header.js
@@ -55,8 +56,8 @@ specific documentation, please view the file located at the import path.
 |   |-- work.css
 |   |-- about.css
 |   |-- contact.css
-|   |-- blog.css
-|   |-- post.css
+|   |-- zettels.css
+|   |-- zettel.css
 |
 |-- img
 |   |-- gitlab.svg
@@ -65,6 +66,7 @@ specific documentation, please view the file located at the import path.
 |
 |-- resources
 |   |-- resume.pdf
+|   |-- favicon.ico
 |
 |-- README.md
 |-- .gitignore
