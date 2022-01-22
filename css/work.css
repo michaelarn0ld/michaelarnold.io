@@ -119,3 +119,19 @@ button:hover {
     cursor: pointer;
     box-shadow: 0 5px 25px rgba(98, 250, 136, 0.6);
 }
+
+
+/* ---------------------------- */
+/* Mobile styling for work page */
+/* ---------------------------- */
+@media (max-width: 590px) {
+    main {
+        margin-top: calc(115px + 2.8rem);
+    }
+}
+
+@media (max-width: 500px) {
+    main {
+        margin-top: calc(70px + 2.8rem);
+    }
+}

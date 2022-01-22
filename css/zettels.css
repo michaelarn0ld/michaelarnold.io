@@ -1,0 +1,270 @@
+/* ********************************************
+/* This file contains all styles for zettels.html
+/* ********************************************
+
+/* --------------------------------------------- */
+/* Color palette, font weights, and side margins */
+/* --------------------------------------------- */
+
+:root {
+    --bg-color: #212121;
+    --primary-color: #62FA88;
+    --txt-clr-dk: #212121;
+    --txt-clr-lt: #F5F5F5;
+    --txt-sz-sm: 1.3rem;
+    --txt-sz-md: 1.8rem;
+    --txt-sz-lg: 3.7rem;
+    --txt-wt-lt: 200;
+    --txt-wt-bd: 500;
+    --margin-sides: 8rem;
+}
+
+@media (max-width: 1490px) {
+    :root {
+        --margin-sides: 4rem;
+    }
+}
+
+@media (max-width: 900px) {
+    :root {
+        --margin-sides: 2.5rem;
+    }
+}
+
+@media (max-width: 590px) {
+    :root {
+        --txt-sz-sm: 1rem;
+        --txt-sz-md: 1.3rem;
+        --txt-sz-lg: 3.0rem;
+    }
+}
+
+@media (max-width: 490px) {
+    :root {
+        --txt-sz-lg: 2.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    :root {
+        --txt-sz-lg: 2.1rem;
+    }
+}
+
+
+/* ----------------------------- */
+/* Main styling for zettels page */
+/* ----------------------------- */
+main {
+    margin: 0 var(--margin-sides);
+    margin-top: calc(125px + 2.8rem);
+}
+
+article {
+    margin-bottom: 50px;
+}
+
+article > div {
+    color: var(--primary-color);
+    display: flex;
+    justify-content: flex-start;
+    font-size: var(--txt-sz-sm);
+    align-items: center;
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+
+article > div > div {
+    height: 2px;
+    width: 4rem;
+    border-radius: 10px;
+    margin-right: 1.5rem;
+    background: var(--primary-color);
+}
+
+article > h1 {
+    font-weight: var(--txt-wt-bd);
+    font-size: var(--txt-sz-lg);
+    margin-bottom: 20px;
+}
+
+article > h1 > span {
+    color: var(--primary-color);
+}
+
+article > p {
+    font-size: var(--txt-sz-sm);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+p > a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+#tags {
+    width: 100%;
+    color: var(--primary-color);
+    margin-bottom: 100px;
+    border-top: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#tags > div {
+    margin: 20px;
+    border: 3px solid var(--primary-color);
+    border-radius: 20px;
+    padding: 4px 16px;
+    cursor: pointer;
+    display flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active-zettel {
+    background: var(--primary-color);
+    color: var(--txt-clr-dk);
+}
+
+#tags > div > div {
+    text-align: center;
+    font-size: var(--txt-sz-sm);
+    font-weight: var(--txt-wt-bd);
+}
+
+#zettel-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+}
+
+#zettel-container > div {
+    justify-self: center;
+    position: relative;
+    width: 420px;
+    height: 280px;
+    margin-bottom: 50px;
+    border: 3px solid var(--txt-clr-lt);
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: var(--txt-sz-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+#zettel-container > div > h4 {
+    color: var(--primary-color);
+    font-size: var(--txt-sz-sm);
+    font-weight: var(--txt-wt-lt);
+    margin-bottom: 12px;
+}
+
+#zettel-container > div > p {
+    color: var(--txt-clr-lt);
+    font-size: var(--txt-sz-md);
+    font-weight: var(--txt-wt-bd);
+}
+
+#zettel-container > div > p > span {
+    color: var(--primary-color);
+}
+
+#zettel-container > div > a {
+    justify-self: end;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-decoration: none;
+    background: var(--primary-color);
+    color: var(--txt-clr-dk);
+    font-size: var(--txt-sz-sm);
+    font-weight: var(--txt-wt-bd);
+    padding: 7px 20px;
+    border-radius: 100px;
+}
+
+#zettel-container > div > a:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(98, 250, 136, 0.6);
+}
+
+/* ------------------------------- */
+/* Mobile styling for zettels page */
+/* ------------------------------- */
+
+@media (max-width: 1560px) {
+    #zettel-container > div {
+        width: 380px;
+    }
+}
+
+@media (max-width: 1320px) {
+    #zettel-container > div {
+        width: 330px;
+    }
+}
+
+@media (max-width: 1200px) {
+    #zettel-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #zettel-container > div {
+        width: 380px;
+    }
+}
+
+@media (max-width: 900px) {
+    #tags > div {
+        margin: 20px 10px;
+    }
+
+    #zettel-container > div {
+        width: 330px;
+    }
+}
+
+@media (max-width: 790px) {
+    #zettel-container {
+        grid-template-columns: 1fr;
+    }
+
+    #zettel-container > div {
+        width: 380px;
+    }
+}
+
+@media (max-width: 590px) {
+    #zettel-container > div {
+        width: 300px;
+        height: 230px;
+    }
+
+    #tags {
+        margin-bottom: 50px;
+    }
+    
+    main {
+        margin-top: calc(115px + 2.8rem);
+    }
+}
+
+@media (max-width: 500px) {
+    #tags > div {
+        margin: 5px 5px;
+    }
+
+    main {
+        margin-top: calc(70px + 2.8rem);
+    }
+}
+
+@media (max-width: 400px) {
+    #zettel-container > div {
+        width: 280px;
+    }
+}
