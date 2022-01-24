@@ -1,0 +1,131 @@
+/* ********************************************
+/* This file contains all styles for work.html
+/* ********************************************
+
+/* --------------------------------------------- */
+/* Color palette, font weights, and side margins */
+/* --------------------------------------------- */
+
+:root {
+    --bg-color: #212121;
+    --primary-color: #62FA88;
+    --txt-clr-dk: #212121;
+    --txt-clr-lt: #F5F5F5;
+    --txt-sz-sm: 1.3rem;
+    --txt-sz-md: 1.8rem;
+    --txt-sz-lg: 3.7rem;
+    --txt-wt-lt: 200;
+    --txt-wt-bd: 500;
+    --margin-sides: 8rem;
+}
+
+@media (max-width: 1490px) {
+    :root {
+        --margin-sides: 4rem;
+    }
+}
+
+@media (max-width: 900px) {
+    :root {
+        --margin-sides: 2.5rem;
+    }
+}
+
+@media (max-width: 590px) {
+    :root {
+        --txt-sz-sm: 1rem;
+        --txt-sz-md: 1.3rem;
+        --txt-sz-lg: 3.0rem;
+    }
+}
+
+@media (max-width: 490px) {
+    :root {
+        --txt-sz-lg: 2.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    :root {
+        --txt-sz-lg: 2.1rem;
+    }
+}
+
+
+/* -------------------------- */
+/* Main styling for work page */
+/* -------------------------- */
+main {
+    margin: 0 var(--margin-sides);
+    margin-top: calc(125px + 2.8rem);
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: var(--txt-sz-sm);
+}
+
+main > div {
+    margin-bottom: 60px;
+}
+
+h1 {
+    font-weight: var(--txt-wt-bd);
+    font-size: var(--txt-sz-lg);
+    margin-bottom: 20px;
+}
+
+h1 > span {
+    color: var(--primary-color);
+}
+
+h2 {
+    font-weight: var(--txt-wt-bd);
+    font-size: var(--txt-sz-md);
+    margin-bottom: 5px;
+}
+
+.subtopic {
+    border-bottom: 3px solid var(--primary-color);
+    margin-bottom: 10px;
+}
+
+code {
+    font-size: 85%;
+    background: #555555;
+    border-radius: 0.1em;
+    padding: 3px 3px;
+}
+
+.code-block {
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+
+/* ---------------------------- */
+/* Mobile styling for work page */
+/* ---------------------------- */
+@media (max-width: 1200px) {
+    main {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+@media (max-width: 590px) {
+    main {
+        margin-top: calc(115px + 2.8rem);
+    }
+}
+
+@media (max-width: 500px) {
+    main {
+        margin-top: calc(70px + 2.8rem);
+    }
+}

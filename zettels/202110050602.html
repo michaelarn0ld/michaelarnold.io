@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/construction.css">
+    <link rel="stylesheet" href="/css/zettel.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
@@ -10,11 +10,49 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Arnold</title>
     <script src="/js/components/Header.js" ></script>
+    <script src="/js/components/Footer.js" ></script>
 </head>
 <body>
     <header-component></header-component>
-    <div class="construction">
-        <h1>Coming Soon<span>.</span></h1>
-    </div>
+    <main>
+        <div>
+            <h1>Understanding Stdin, Stdout, Stderr<span>.</span></h1>
+            <p>
+            Standard input (stdin), standard output (stdout), and standard error
+            (stderr) are three streams out data that are create when you launch
+            a program. They describe what input a program recieves, what data it
+            produces, and any errors that occur during execution.
+            </p>
+            <p>
+            When you enter a command, your keyboard input is the presumed input
+            unless a file is specified.  Similarly, the screen serves as
+            standard output; commands take input and send the results,
+            if there are any, to the ouput. Finally, standard error is where
+            program errors are delivered; by default, this is the screen.
+            </p>
+        </div>
+        <div>
+            <div class="subtopic"><h2>Pipes and Stdin</h2></div>
+            <p>The power of UNIX comes from the ability to chain (pipe) the
+            <code>stdout</code> of one program to the <code>stdin</code> of
+            another. Consider the following example:</p>
+            <div class="code-block">
+                <code>grep '#' README.md | sed 's/\#*\s//' | nl | more</code>
+            </div>
+            <p>Let's dissect the steps of this command. First, we send
+            the file <code>README.md</code> to the <code>stdin</code> of 
+            <code>grep</code> and select all lines containing "#". Next, we
+            send the output of that program to <code>stdin</code> of 
+            <code>sed</code> and substitute any "#*\s" for nothing (in other words
+            we remove the "#*\s"). Then, we send the output of this to 
+            <code>stdin</code> of <code>nl</code> which adds line numbers to each
+            line of output. Finally, we send the output to <code>more</code> which
+            sends its output to the screen.
+        </div>
+        <div>
+            <div class="subtopic"><h2>Redirecting Stdout and Stderr</h2></div>
+        </div>
+    </main>
+    <footer-component></footer-component>
     <script type="module" src="/js/main.js"></script>
 </body>
