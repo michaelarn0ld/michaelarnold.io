@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/construction.css">
+    <link rel="stylesheet" href="/css/zettel.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
@@ -10,11 +10,156 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Arnold</title>
     <script src="/js/components/Header.js" ></script>
+    <script src="/js/components/Footer.js" ></script>
 </head>
 <body>
     <header-component></header-component>
-    <div class="construction">
-        <h1>Coming Soon<span>.</span></h1>
-    </div>
+    <main>
+        <div>
+            <h1>Configuring a React Application from Scratch<span>.</span></h1>
+            <p>
+            <code class="prettyprint">create-react-app</code> is a beast of a command; it allows developers to quickly
+                get up and running with React, without having to think about the technical
+                details. Because of its' approach however, it does come with a few flaws. It may
+                bloat your project by providing several out-of-the-box dependencies that your
+                project does not require. It also makes it difficult to add custom build
+                configurations since it hides what is installed under the hood. Finally, it also
+                hides the requirements of a React application from developers, making them
+                dependent on the tool.
+            </p>
+        </div>
+        <div>
+            <div class="subtopic"><h2>Setup</h2></div>
+            <p>Go to directory where your projects live and create a new directory for your
+                project. You will also need some boiler-plate project structure to assist the
+                webpack tools in building your application. A bare-bones React app is structured
+                like so:
+            </p>
+            <pre class="prettyprint">
+    .
+    │
+    ├── package.json
+    │
+    ├── package-lock.json
+    │
+    ├── webpack.config.js
+    │
+    ├── src
+    │   ├── index.html
+    │   │
+    │   ├── index.js
+    │   │
+    │   ├── components
+    │       ├── App.js
+    │
+    ├── dist
+    │   ├── ...
+    │
+    ├── node_modules
+    │   ├── ...
+    │
+            </pre>
+            <p>The following files/directories will be automatically generated during the
+                subsequent steps, so we do not need to manually create them:
+            </p>
+            <p>
+                <ul>
+                    <li><code class="prettyprint">package.json</code></li>
+                    <li><code class="prettyprint">package-lock.json</code></li>
+                    <li><code class="prettyprint">webpack.config.js</code></li>
+                    <li><code class="prettyprint">node_modules/</code></li>
+                    <li><code class="prettyprint">dist/</code></li>
+                </ul>
+            </p>
+            <p>
+            Make sure to grab my <code class="prettyprint">makereact</code>
+            script from <a target="_blank" href="https://gitlab.com/michaelarn0ld/sh-scripts">here</a> if you do not already have it. Now
+            start by running these commands:
+            </p>
+            <pre class="prettyprint">
+    mkdir -p {YOUR_PROJECT_NAME}/src/components/ && cd {YOUR_PROJECT_NAME}
+
+    touch webpack.config.js src/index.{html,js} src/components/App.js
+
+    npm init -y &> /dev/null
+
+    makereact</pre>
+            <p>
+            Now, you must configure package.json so we can utilize the webpack
+            tools we just installed for development and production environments. Modify
+            the "scripts" from:
+            </p>
+        <pre class="prettyprint">
+    ...
+    "scripts": {
+        "test": "..."
+    }
+    ...</pre>
+            <p>to</p>
+        <pre class="prettyprint">
+    ...
+    "scripts": {
+        "start": "webpack-dev-server --mode development --open --hot",
+        "build": "webpack --mode production"
+    }
+    ...</pre>
+            <p>add the following to webpack.config.js</p>
+        <pre class="prettyprint">
+ const path = require('path');
+ const HTMLWebpackPlugin = require('html-webpack-plugin');
+
+ module.exports = {
+
+     entry: './src/index.js',
+
+     output: {
+         path: path.join(__dirname, './dist'),
+         filename: 'bundle.js'
+     },
+
+     plugins: [
+         new HTMLWebpackPlugin({
+             template: './src/index.html'
+         })
+     ],
+
+     module: {
+         rules: [
+             {
+                 test: /.js$/,
+                 exclude: /node_modules/,
+                 use: {
+                     loader: 'babel-loader',
+                     options: {
+                         presets: ['@babel/preset-env', '@babel/preset-react'],
+                         plugins: ['@babel/plugin-transform-runtime']
+                     }
+                 }
+             }
+         ]
+     }
+
+ }
+        </pre>
+        <p>
+        Briefly, these configurations tell webpack that the root of the dependency graph
+is at <code class="prettyprint">./src/index.js</code>, the build bundle will go to <code class="prettyprint">./dist/bundle.js</code>,
+React will be injecting its code into file <code class="prettyprint">./src/index.html</code> as the
+template, and finally babel will transpile all javascript files except those with
+<code class="prettyprint">node_modules</code> included in their path. The <code class="prettyprint">@babel/plugin-transform-runtime</code>
+allows us to avoid the error "regeneratorRuntime is not defined" when using <code class="prettyprint">async/await</code>.
+        </p>
+        <p>Now, add the standard boilerplate in index.js, index.html, and App.js.
+        Once this is complete, you will want to make sure everything is working
+        smoothly; run <code class="prettyprint">npm start</code>. If all went well,
+        you should see your React app running in the browser!</p>
+        </div>
+        <div>
+            <div class="subtopic"><h2>Tags</h2></div>
+            <p>#react</p>
+        </div>
+    </main>
+    <footer-component></footer-component>
     <script type="module" src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 </body>

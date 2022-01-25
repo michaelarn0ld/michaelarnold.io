@@ -16,7 +16,7 @@
     <header-component></header-component>
     <main>
         <div>
-            <h1>Understanding Stdin, Stdout, Stderr<span>.</span></h1>
+            <h1>Basics of Stdin, Stdout, Stderr<span>.</span></h1>
             <p>
             Standard input (stdin), standard output (stdout), and standard error
             (stderr) are three streams out data that are create when you launch
@@ -34,25 +34,70 @@
         <div>
             <div class="subtopic"><h2>Pipes and Stdin</h2></div>
             <p>The power of UNIX comes from the ability to chain (pipe) the
-            <code>stdout</code> of one program to the <code>stdin</code> of
+            <code class="prettyprint">stdout</code> of one program to the <code class="prettyprint">stdin</code> of
             another. Consider the following example:</p>
             <div class="code-block">
-                <code>grep '#' README.md | sed 's/\#*\s//' | nl | more</code>
+                <pre class="prettyprint">  grep '#' README.md | sed 's/#*//g' | nl | more</pre>
             </div>
             <p>Let's dissect the steps of this command. First, we send
-            the file <code>README.md</code> to the <code>stdin</code> of 
-            <code>grep</code> and select all lines containing "#". Next, we
-            send the output of that program to <code>stdin</code> of 
-            <code>sed</code> and substitute any "#*\s" for nothing (in other words
-            we remove the "#*\s"). Then, we send the output of this to 
-            <code>stdin</code> of <code>nl</code> which adds line numbers to each
-            line of output. Finally, we send the output to <code>more</code> which
-            sends its output to the screen.
+            the file <code class="prettyprint">README.md</code> to the <code class="prettyprint">stdin</code> of 
+            <code class="prettyprint">grep</code> and select all lines containing "#". Next, we
+            send the output of that program to <code class="prettyprint">stdin</code> of 
+            <code class="prettyprint">sed</code> and substitute any "#" for nothing (in other words
+            we remove the character "#" entirely). Then, we send the output of this to the 
+            <code class="prettyprint">stdin</code> of <code class="prettyprint">nl</code>, adding line numbers to each
+            line of output. Finally, we send the output to <code class="prettyprint">more</code> which
+            sends its output to the screen. Consider the following <code class="prettyprint">README.md</code>:</p>
+            <div class="code-block">
+                <pre class="prettyprint">
+    #foo
+    ##bar
+    //this line omitted
+    ###foo##bar</pre>
+                <p>Which when fed to our above command produces the output:</p>
+            </div>
+                <pre class="prettyprint">
+    1. foo
+    2. bar
+    3. foobar</pre>
         </div>
         <div>
             <div class="subtopic"><h2>Redirecting Stdout and Stderr</h2></div>
+            <div class="code-block">
+                <pre class="prettyprint">  find / > find.out 2>found.err</pre>
+            </div>
+            <p>This command recursively finds all files rooted from
+                <code class="prettyprint">/</code>, redirects 
+                <code class="prettyprint">stdout</code> to 
+                <code class="prettyprint">find.out</code>, and redirects
+                <code class="prettyprint">stderr</code> to 
+                <code class="prettyprint">find.err</code>. It is exactly
+                equivalent to:
+            </p>
+            <div class="code-block">
+                <pre class="prettyprint">  find / 1> find.out 2>found.err</pre>
+            </div>
+            <p>
+            This shows us the concept of file descriptors; standard output has
+            the file descriptor of 1, while standard error has the file
+            descriptor of 2. If you want to write both the output and errors
+            to the same location, then use:
+            </p>
+            <div class="code-block">
+                <pre class="prettyprint">  find / > find.both 2>&1</pre>
+            </div>
+            <p>
+            In english, this command instructs us to first redirect output to
+            <code class="prettyprint">find.both</code> and then redirect the errors to the output.
+            </p>
+        </div>
+        </div>
+        <div>
+            <div class="subtopic"><h2>Tags</h2></div>
+            <p>#linux</p>
         </div>
     </main>
     <footer-component></footer-component>
     <script type="module" src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 </body>
