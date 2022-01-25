@@ -154,7 +154,6 @@ pre.prettyprint {
 	width: 95%;
     overflow:auto;
 	margin: 1em auto;
-	white-space: pre-wrap;
 }
 
 /* Specify class=linenums on a pre to get line numbering */
