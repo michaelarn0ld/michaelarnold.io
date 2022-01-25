@@ -9,20 +9,6 @@ export const zettels = [
 
     {
         id: 2,
-        attributes: ["computerscience"],
-        content: "Insertion Sort Algorithm - Using Pseudocode",
-        zetId: "202110130353"
-    },
-    
-    {
-        id: 3,
-        attributes: ["computerscience"],
-        content: "Bubble Sort Algorithm - Using Pseudocode",
-        zetId: "202110130301"
-    },
-
-    {
-        id: 4,
         attributes: ["linux"],
         content: "Basics of Stdin, Stdout, Stderr - Pipes & Redirection",
         zetId: "202110050602"
