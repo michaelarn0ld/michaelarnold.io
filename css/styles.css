@@ -276,11 +276,21 @@ header > nav > a > div:hover {
 /* --------------------------- */
 footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 50px var(--margin-sides);
     font-size: var(--txt-sz-sm);
     font-weight: var(--txt-wt-lt);
     text-align: center;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--primary-color);
 }
 
