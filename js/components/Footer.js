@@ -10,7 +10,11 @@ class Footer extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <footer>
-                <p>Copyright © 2021 Michael Arnold.</p>
+                <p>Notice a 🪲  bug? Submit an issue 
+                <a href="https://gitlab.com/michaelarn0ld/website/-/issues/new?issue%5Bmilestone_id%5D="
+                target="_blank">
+                here</a>.</p>
+                <p>Copyright © 2022 Michael Arnold.</p>
             </footer>
         `
     }

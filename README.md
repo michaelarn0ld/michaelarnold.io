@@ -2,7 +2,7 @@
 
 This project is a portfolio website that is meant to showcase my professional,
 academic, and personal endeavors. Accessible from the home page are: project,
-bio, blog, and contact pages.
+bio, zettels, and contact pages.
 
 ## Technologies
 - HTML5
@@ -10,7 +10,7 @@ bio, blog, and contact pages.
 - JavaScript
 - GSAP
 
-## Architecture
+## Directory Structure/Navigation
 All assets of the website abide by the following rules:
 
 - Each page contains two CSS files; "styles.css" handles component styling and
@@ -80,7 +80,7 @@ The hosting and SSL for this project are provided by Netlify.
 @contact: me@michaelarnold.io
 
 ## License
-Copyright © 2021 Michael Arnold
+Copyright © 2022 Michael Arnold
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
