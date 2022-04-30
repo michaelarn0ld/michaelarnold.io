@@ -269,13 +269,8 @@ header > nav > a > div:hover {
     }
 }
 
-@media (max-width: 600px) {
-    .burger {
-        grid-column: -3;
-    }
-}
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .burger {
         grid-column: -4;
     }
