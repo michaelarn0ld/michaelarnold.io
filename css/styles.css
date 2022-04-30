@@ -257,7 +257,7 @@ header > nav > a > div:hover {
         align-items: center;
         justify-content: center;
         grid-row: 1;
-        grid-column: -3;
+        grid-column: -4;
     }
 
     .burger-open div::before {
