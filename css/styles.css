@@ -153,7 +153,6 @@ header > nav > a > div:hover {
     display: none;
     height: 35px;
     width: 35px;
-    display: none;
 }
 
 .burger > div {
@@ -258,7 +257,7 @@ header > nav > a > div:hover {
         align-items: center;
         justify-content: center;
         grid-row: 1;
-        grid-column: -1;
+        grid-column: -2;
     }
 
     .burger-open div::before {
@@ -270,6 +269,12 @@ header > nav > a > div:hover {
     }
 }
 
+
+@media (max-width: 500px) {
+    .burger {
+        grid-column: -4;
+    }
+}
 
 /* --------------------------- */
 /* Styles for footer component */
