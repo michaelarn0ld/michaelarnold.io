@@ -222,6 +222,7 @@ header > nav > a > div:hover {
 /* mobile view for header & navbar */
 @media (max-width: 900px) {
     body {
+        background: red;
         overflow-x: hidden;
     }
 
@@ -253,11 +254,11 @@ header > nav > a > div:hover {
     }
 
     .burger {
-        display: block;
+        display: flex;
         align-items: center;
         justify-content: center;
         grid-row: 1;
-        grid-column: -1;
+        grid-column: -5;
     }
 
     .burger-open div::before {
