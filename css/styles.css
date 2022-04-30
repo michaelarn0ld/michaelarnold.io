@@ -150,8 +150,7 @@ header > nav > a > div:hover {
 
 .burger {
     cursor: pointer;
-    /*display: none;*/
-    opacity: 0;
+    display: none;
     height: 35px;
     width: 35px;
 }
@@ -254,8 +253,7 @@ header > nav > a > div:hover {
     }
 
     .burger {
-        display: flex;
-        opacity: 1;
+        display: block;
         align-items: center;
         justify-content: center;
         grid-row: 1;
