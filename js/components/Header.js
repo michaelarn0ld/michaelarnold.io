@@ -13,10 +13,10 @@ class Header extends HTMLElement {
                 <a href="/">michaelarnold<span>.</span>io</a>
                 <section>
                     <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="29.254" height="27.072" viewBox="0 0 29.254 27.072">
-                          <path id="Icon_feather-gitlab" data-name="Icon feather-gitlab" d="M28.24,18.272,15.087,27.831,1.934,18.272a1.037,1.037,0,0,1-.371-1.161L3.07,12.443,6.084,3.168a.519.519,0,0,1,.136-.2.531.531,0,0,1,.716,0,.519.519,0,0,1,.136.222l3.013,9.25h10L23.1,3.168a.519.519,0,0,1,.136-.2.531.531,0,0,1,.716,0,.519.519,0,0,1,.136.222L27.1,12.468l1.568,4.644a1.037,1.037,0,0,1-.432,1.161Z" transform="translate(-0.485 -1.759)" fill="none" stroke="#62fa88" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25.397" height="27.028" viewBox="0 0 25.397 27.028">
+                          <path id="Icon_feather-github" data-name="Icon feather-github" d="M11.323,22.893C5.378,24.676,5.378,19.921,3,19.326M19.645,26.46v-4.6a4.007,4.007,0,0,0-1.118-3.1c3.733-.416,7.657-1.831,7.657-8.323A6.467,6.467,0,0,0,24.4,5.975a6.028,6.028,0,0,0-.108-4.483s-1.4-.416-4.649,1.76a15.908,15.908,0,0,0-8.323,0c-3.246-2.176-4.649-1.76-4.649-1.76a6.028,6.028,0,0,0-.107,4.482,6.468,6.468,0,0,0-1.783,4.494c0,6.444,3.924,7.859,7.657,8.323a4.007,4.007,0,0,0-1.118,3.068v4.6" transform="translate(-1.787 -0.432)" fill="none" stroke="#62fa88" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                         </svg>
-                        <a href="https://gitlab.com/michaelarn0ld" target="_blank">GitLab</a>
+                        <a href="https://github.com/michaelarn0ld" target="_blank">GitHub</a>
                     </div>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">

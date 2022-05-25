@@ -60,7 +60,7 @@ specific documentation, please view the file located at the import path.
 |   |-- zettel.css
 |
 |-- img
-|   |-- gitlab.svg
+|   |-- github.svg
 |   |-- linkedin.svg
 |   |-- ...
 |

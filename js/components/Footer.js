@@ -11,7 +11,7 @@ class Footer extends HTMLElement {
         this.innerHTML = `
             <footer>
                 <p>Notice a 🪲  bug? Submit an issue 
-                <a href="https://gitlab.com/michaelarn0ld/website/-/issues/new?issue%5Bmilestone_id%5D="
+                <a href="https://github.com/michaelarn0ld/michaelarnold.io/issues/new"
                 target="_blank">
                 here</a>.</p>
                 <p>Copyright © 2022 Michael Arnold.</p>
