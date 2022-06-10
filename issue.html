@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/resources/favicon.ico">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Arnold</title>
+    <script src="/js/components/Header.js" ></script>
+    <script src="/js/components/Footer.js" ></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body>
+    <header-component></header-component>
+    <div id="contact-content">
+        <main>
+            <div class="contact-header">
+                <p>Submit an Issue<span>.</span></p>
+            </div>
+            <div class="contact-message">
+                <p>
+                    Notice a bug on the site? Feel free to submit an issue by
+                    filling out the form below. Alternatively, shoot me an email
+                    at <a href="mailto:me@michaelarnold.io">me@michaelarnold.io</a>
+                </p>
+            </div>
+        </main>
+        <form class="contact-form" id="contact-form" action="">
+            <div class="form-col1">
+                <div>
+                    <label for="name">Name</label>
+                    <div>
+                      <input name="user_name" type="text" id="form-name"/>
+                    </div>
+                </div>
+                <div>
+                    <label for="email">Email Address</label>
+                    <div>
+                      <input name="user_email" type="email" id="form-email"/>
+                    </div>
+                </div>
+                <div>
+                    <label for="subject">Issue</label>
+                    <div>
+                      <input required name="user_subject" type="text" id="form-subject"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-col2">
+                <label for="message">Description</label>
+                <div>
+                  <textarea required rows="7" name="message" type="text" 
+                      id="form-message"></textarea>
+                </div>
+                <button type="submit">Submit Issue</button>
+            </div>
+        </form>
+    </div>
+    <footer-component></footer-component>
+    <script type="module" src="/js/main.js"></script>
+</body>
