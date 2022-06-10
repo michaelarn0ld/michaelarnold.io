@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="/css/form-template-page.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
@@ -15,12 +15,12 @@
 </head>
 <body>
     <header-component></header-component>
-    <div id="contact-content">
+    <div id="form-template-page-content">
         <main>
-            <div class="contact-header">
+            <div class="form-template-page-header">
                 <p>Submit an Issue<span>.</span></p>
             </div>
-            <div class="contact-message">
+            <div class="form-template-page-message">
                 <p>
                     Notice a bug on the site? Feel free to submit an issue by
                     filling out the form below. Alternatively, shoot me an email
@@ -28,7 +28,7 @@
                 </p>
             </div>
         </main>
-        <form class="contact-form" id="contact-form" action="">
+        <form class="form-template-page-form" id="issue-form" action="">
             <div class="form-col1">
                 <div>
                     <label for="name">Name</label>
@@ -45,14 +45,14 @@
                 <div>
                     <label for="subject">Issue</label>
                     <div>
-                      <input required name="user_subject" type="text" id="form-subject"/>
+                      <input name="user_subject" type="text" id="form-subject"/>
                     </div>
                 </div>
             </div>
             <div class="form-col2">
                 <label for="message">Description</label>
                 <div>
-                  <textarea required rows="7" name="message" type="text" 
+                  <textarea rows="7" name="message" type="text" 
                       id="form-message"></textarea>
                 </div>
                 <button type="submit">Submit Issue</button>

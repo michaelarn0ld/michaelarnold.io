@@ -1,6 +1,6 @@
-/* **********************************************
-/* This file contains all styles for contact.html
-/* **********************************************
+/* *************************************************************
+/* This file contains all styles for contact.html and issue.html
+/* *************************************************************
 
 /* --------------------------------------------- */
 /* Color palette, font weights, and side margins */
@@ -53,7 +53,7 @@
 
 
 /* ---------------------------- */
-/* Main styles for contact page
+/* Main styles for form-template-page page
 /* ---------------------------- */
 main{
     margin: 0 var(--margin-sides);
@@ -61,7 +61,7 @@ main{
     grid-template-columns: repeat(12, 1fr);
 }
 
-#contact-content {
+#form-template-page-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,10 +70,10 @@ main{
 
 
 /* ------------------------- */
-/* Styles for contact header
+/* Styles for form-template-page header
 /* ------------------------- */
 
-.contact-header {
+.form-template-page-header {
     margin-top: calc(125px + 2.8rem);
     grid-column: 3 / -1;
     font-size: var(--txt-sz-lg);
@@ -81,28 +81,28 @@ main{
     margin-bottom: 15px;
 }
 
-.contact-header  span {
+.form-template-page-header  span {
     color: var(--primary-color);
 } 
 
-.contact-message {
+.form-template-page-message {
     grid-column: 3 / -3;
     font-size: var(--txt-sz-sm);
     line-height: 2;
     margin-bottom: 15px;
 }
 
-.contact-message a {
+.form-template-page-message a {
     text-decoration: none;
     color: var(--primary-color);
 }
 
 
 /* ----------------------- */
-/* Styles for contact form
+/* Styles for form-template-page form
 /* ----------------------- */
 
-.contact-form {
+.form-template-page-form {
     display: flex;
     border-radius: 15px;
     padding: 20px 40px;
@@ -181,19 +181,19 @@ main{
 }
 
 /* ------------------------- */
-/* Styles for mobile contact
+/* Styles for mobile form-template-page
 /* ------------------------- */
 
 @media (max-width: 1000px){
-    .contact-header{
+    .form-template-page-header{
         grid-column: 2/-1;
     }
 
-    .contact-message{
+    .form-template-page-message{
         grid-column: 2/-2;
     }
 
-    .contact-form {
+    .form-template-page-form {
         flex-direction: column;
         width: 50vw;
     }
@@ -212,23 +212,23 @@ main{
 }
 
 @media (max-width: 600px){
-    .contact-header{
+    .form-template-page-header{
         margin-top: calc(75px + 2.8rem);
     }
 
-    .contact-form {
+    .form-template-page-form {
         width: 60vw;
     }
 }
 
 @media (max-width: 500px){
-    .contact-form {
+    .form-template-page-form {
         width: 70vw;
     }
 }
 
 @media (max-width: 450px){
-    .contact-form {
+    .form-template-page-form {
         width: 78vw;
     }
 }

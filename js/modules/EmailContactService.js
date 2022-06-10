@@ -31,6 +31,7 @@ export const EmailContactService = () => {
     window.onload = () => {
         // grab the contact form from contact.html
         const contactForm = document.getElementById('contact-form')
+        console.log(contactForm)
         // when the contact form is submitted, use EmailJS to send an email
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault()                                         
