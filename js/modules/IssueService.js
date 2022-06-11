@@ -12,20 +12,29 @@
 
 const baseUrl = "http://localhost:8080"
 
-const submitIssue = () => {
-  const payload = {
+const submitIssue = async () => {
+
+  const issue = {
     name: document.getElementById("form-name").value,
     email: document.getElementById("form-email").value,
     subject: document.getElementById("form-subject").value,
     body: document.getElementById("form-message").value
   }
+  
+  const payload = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(issue)
+  }
 
-  return new Promise(resolve => {
-    setTimeout(() => {
-      console.log(payload)
-      resolve('resolved')
-    }, 2000)
-  })
+  const response = await fetch(`${baseUrl}/issue`, payload)
+  if (response.status === 201) {
+    return response
+  }
+  return Promise.reject(`Request failed with status: ${response.status}`)
+  
 }
 
 const succeedWorkflow = () => {
@@ -38,10 +47,11 @@ const failWorkflow = () => {
 
 const submit = async (form) => {
   try {
-    const bar = await submitIssue()
+    const response = await submitIssue()
     form.reset()
     succeedWorkflow()
   } catch (e) {
+    console.log(e)
     failWorkflow()
   }
 }
