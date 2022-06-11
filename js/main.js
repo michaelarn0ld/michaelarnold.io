@@ -34,6 +34,7 @@ const heroWords = [
  * ------ */
 
 const main = () => {
+    
     // Mobile Navbar View allows the navbar layout to change on mobile screens
     MobileNavbarView()
 
