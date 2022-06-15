@@ -10,7 +10,7 @@
  *
  * ----------------------------------------------------------------- */
 
-const baseUrl = "http://localhost:8080"
+const baseUrl = "http://ec2-3-101-56-28.us-west-1.compute.amazonaws.com:8080"
 
 const submitIssue = async () => {
 
