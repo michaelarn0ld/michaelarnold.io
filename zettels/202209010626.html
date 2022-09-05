@@ -70,30 +70,35 @@ import java.util.concurrent.Future;
 
 public class App {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        List<Integer> names = new ArrayList<>();
+        List<Integer> numbers = new ArrayList<>();
 
         // We are going to submit 100 tasks concurrently
         for (int i = 0; i < 100; ++i) {
-            names.add(i);
+            numbers.add(i);
         }
 
         ExecutorService threadPool = Executors.newCachedThreadPool();
         CompletionService<Integer> ecs = new ExecutorCompletionService<>(threadPool);
 
         // submit each callable on a thread
-        names.stream().map(Item::new).forEach(ecs::submit);
-        Integer name = null;
+        numbers.stream().map(Item::new).forEach(ecs::submit);
+        Integer number = null;
 
-        for (int i = 0; i < 1; ++i) {
+        while (number == null) {
             try {
                // Futures are returned in completion order
                Future<Integer> take = ecs.take();
-               name = take.get();
+               number = take.get();
             } catch (ExecutionException e) {
-                i--;
+              // Do nothing if some of the threads give an exception
+              
+              /*
+              TODO: Handle the case where ALL threads give an exception, else
+              this will just be an infinite loop..
+              */
             }
         }
-        System.out.println(name);
+        System.out.println(number);
 
         // Close the execution service
         threadPool.shutdownNow();
