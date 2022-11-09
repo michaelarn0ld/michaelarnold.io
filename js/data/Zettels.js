@@ -12,6 +12,13 @@ export const zettels = [
         attributes: ["linux"],
         content: "Basics of Stdin, Stdout, Stderr - Pipes & Redirection",
         zetId: "202110050602"
+    },
+
+    {
+      id: 3,
+      attributes: ["concurrency", "java"],
+      content: "Getting the First Finished Future",
+      zetId: "202209010626"
     }
 
 ]
