@@ -36,18 +36,38 @@
 
 import { zettels } from "../data/Zettels.js" 
 
-export const Zettelkasten = () => {
+const baseUrl = "http://localhost:8080"
+
+const fetchZettels = async (zettels, baseUrl) => {
+    const request = {
+        method: "GET",
+        headers: {
+            "Content-Type": "appplication/json"
+        }
+    }
+    let response = await fetch(`${baseUrl}/previews`, request)
+    if (response.status !== 200) {
+        return Promise.reject(`Request failed with status: ${response.status}`)
+    }
+    let data = await response.json()
+    let maxZettelId = zettels.reduce((a, b) => a.id > b.id ? a.id : b.id, 0) 
+    data.forEach(d => d.id += maxZettelId)
+    return [...zettels, ...data]
+}
+
+export const Zettelkasten = async () => {
 
     // Hold data about which tags are available & which are selected
     const activeTags = new Set()
     const tags = {}
+    let completeZettels = await fetchZettels(zettels, baseUrl)
 
     /**
      * Looks at the zettels and maps each tag as a unique key such that its
      * values are the zettels that contain that tag; a tag may have one or more
      * associated zettels.
      */
-    zettels.forEach(z => {
+    completeZettels.forEach(z => {
         z.attributes.forEach(tag => {
             tags[tag] = tags[tag] === undefined ? [z] : [...tags[tag], z]
         })
@@ -66,11 +86,11 @@ export const Zettelkasten = () => {
             zettelContainer.removeChild(zettelContainer.lastChild)
         }
         activeTags.size === 0 ? 
-            zettels.forEach(z => {
+            completeZettels.forEach(z => {
                 zettelContainer.appendChild(makeZettelDiv(z))
             })
             : 
-            zettels.forEach(z => {
+            completeZettels.forEach(z => {
                 z.attributes.some(a => activeTags.has(a)) &&
                     zettelContainer.appendChild(makeZettelDiv(z))
             })
