@@ -36,7 +36,7 @@
 
 import { zettels } from "../data/Zettels.js" 
 
-const baseUrl = "http://localhost:8080"
+const baseUrl = "http://ec2-54-176-135-148.us-west-1.compute.amazonaws.com:8080"
 
 /**
  * This function fetches the zettel previews from the zettel service and merges
