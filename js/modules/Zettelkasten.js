@@ -35,6 +35,7 @@
  * ----------------------------------------------------------------- */
 
 import { zettels } from "../data/Zettels.js" 
+zettels.forEach(z => z.custom = true)
 
 const baseUrl = "http://ec2-54-176-135-148.us-west-1.compute.amazonaws.com:8080"
 
@@ -59,6 +60,7 @@ const fetchZettels = async (zettels, baseUrl) => {
         return Promise.reject(`Request failed with status: ${response.status}`)
     }
     let data = await response.json()
+    data.forEach(d => d.custom = false)
     let maxZettelId = zettels.reduce((a, b) => a.id > b.id ? a.id : b.id, 0) 
     data.forEach(d => d.id += maxZettelId)
     return [...zettels, ...data]
@@ -152,14 +154,21 @@ export const Zettelkasten = async () => {
      *                        Zettel object
      * @return: a DOM node using zettel data
      */
-    const makeZettelDiv = ({attributes, content, zetId}) => {
+    const makeZettelDiv = ({attributes, content, zetId, custom}) => {
         const zettelDiv = document.createElement("div")
         let zettelTags = ""
         attributes.forEach(a => zettelTags += `#${a} `)
+        custom === true ? 
         zettelDiv.innerHTML = `
             <h4>${zettelTags}</h4>
             <p>${content}<span>.</span></p>
-            <a href="/zettels/${zetId}.html"><div>Read Zettel</div></a>
+            <a href="/zettels/${zetId}.html"><div id="fetch-${zetId}">Read Zettel</div></a>
+        `
+        :
+        zettelDiv.innerHTML = `
+            <h4>${zettelTags}</h4>
+            <p>${content}<span>.</span></p>
+            <a onclick="fetchZettel(${zetId})"><div id="fetch-${zetId}">Read Zettel</div></a>
         `
         return zettelDiv
     }
