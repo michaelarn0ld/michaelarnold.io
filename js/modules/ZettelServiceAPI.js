@@ -1,9 +1,21 @@
 const baseUrl = "http://ec2-54-176-135-148.us-west-1.compute.amazonaws.com:8080"
 
+const converter = new showdown.Converter()
+
 const renderZettelModal = (zettel) => {
     let modal = document.querySelector('#modal')
     let content = modal.children[0]
-    content.innerHTML = zettel.content
+    let contentArr = zettel.content.split('\n')
+    let tagsIndex = contentArr.indexOf("## Tags")
+    let contentSubArr = contentArr.slice(0, tagsIndex)
+    let markdownStr = contentSubArr.join('\n')
+    let tags = contentArr[tagsIndex+1]
+
+    let html = converter.makeHtml(markdownStr)
+
+    html += "<h2>Tags</h2>"
+    html += `<p>${tags}</p>`
+    content.innerHTML = html
     modal.style.display = 'block'
 }
 
@@ -23,11 +35,12 @@ const requestZettel = async (zettelId) => {
 }
 
 const fetchZettel = async (zettelId) => {
-    let zettel
+    let zettel = {}
     try {
         zettel = await requestZettel(zettelId)
     } catch(err) {
-        zettel = "FOOBAR" // TODO: ERROR ZETTEL
+        zettel.id = 0
+        zettel.content = "# Whoops! Something Went Wrong\nSorry, please try again later!\n## Tags\n#server500"
     }
     renderZettelModal(zettel)
 }

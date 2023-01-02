@@ -9,19 +9,14 @@
     <link rel="icon" type="image/x-icon" href="/resources/favicon.ico">
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Arnold</title>
+    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>   
     <script src="/js/components/Header.js" ></script>
     <script src="/js/components/Footer.js" ></script>
     <script src="/js/modules/ZettelServiceAPI.js" ></script>
 </head>
 <body>
     <div id="modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="modal-close">&times;</span>
-            </div>
-            <div class="modal-body"></div>
-            <div class="modal-footer"></div>
-        </div>
+        <div class="modal-content"></div>
     </div>
     <header-component></header-component>
     <main>
@@ -48,6 +43,6 @@
     </main>
     <footer-component></footer-component>
     <script type="module" src="/js/main.js"></script>
-    <script type="module" src="/js/modules/ZettelModal.js"></script>
+    <script type="module" src="/js/modules/ZettelModalClose.js"></script>
 </body>
 </html

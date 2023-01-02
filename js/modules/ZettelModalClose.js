@@ -1,9 +1,4 @@
 const modal = document.querySelector('#modal')
-const closeBtn = document.querySelector('.modal-close')
-
-const closeModal = () => {
-    modal.style.display = 'none'
-}
 
 const outsideClick = (e) => {
     if(e.target == modal) {
@@ -11,5 +6,4 @@ const outsideClick = (e) => {
     }
 }
 
-closeBtn.addEventListener('click', closeModal)
 window.addEventListener('click', outsideClick)

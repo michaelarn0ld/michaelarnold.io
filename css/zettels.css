@@ -117,40 +117,33 @@ p > a {
 
 .modal-content {
     margin: 10% auto;
-    background: #fff;
-    color: black;
+    background: var(--bg-color);
+    border: 3px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
     width: 60%;
-    height: 60%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
     animation-name: modalopen;
     animation-duration: 1s;
 }
 
-.modal-header {
-    padding: 15px;
-    color: #fff;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-.modal-close {
-  float: right;
-  color: red;
+.modal-content > h1 {
+  color: var(--primary-color);
   font-weight: var(--txt-wt-bd);
-  font-size: var(--txt-sz-lg);
+  margin: 0 0 15px 0;
 }
 
-.modal-body {
-    padding: 10px 20px;
-    background: #fff;
+.modal-content > h2 {
+  color: var(--primary-color);
+  font-weight: var(--txt-wt-bd);
+  margin: 0 0 5px 0;
 }
 
-.modal-footer {
-    padding: 10px;
-    color: #fff;
-    text-align: center;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+.modal-content > p {
+  color: var(--txt-clr-lt);
+  font-weight: var(--txt-wt-lt);
+  font-size: var(--txt-sz-sm);
+  margin: 0 0 25px 0;
 }
 
 #tags {
@@ -273,6 +266,10 @@ p > a {
         margin: 20px 10px;
     }
 
+    .modal-content {
+        width: 65%;
+    }
+
     #zettel-container > div {
         width: 330px;
     }
@@ -281,6 +278,10 @@ p > a {
 @media (max-width: 790px) {
     #zettel-container {
         grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 70%;
     }
 
     #zettel-container > div {
@@ -297,6 +298,10 @@ p > a {
     #tags {
         margin-bottom: 50px;
     }
+
+    .modal-content {
+        width: 75%;
+    }
     
     main {
         margin-top: calc(115px + 2.8rem);
@@ -306,6 +311,10 @@ p > a {
 @media (max-width: 500px) {
     #tags > div {
         margin: 5px 5px;
+    }
+
+    .modal-content {
+        width: 80%;
     }
 
     main {
