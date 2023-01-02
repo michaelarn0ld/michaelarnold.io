@@ -35,19 +35,55 @@
  * ----------------------------------------------------------------- */
 
 import { zettels } from "../data/Zettels.js" 
+zettels.forEach(z => z.custom = true)
 
-export const Zettelkasten = () => {
+const baseUrl = "http://ec2-54-176-135-148.us-west-1.compute.amazonaws.com:8080"
+
+/**
+ * This function fetches the zettel previews from the zettel service and merges
+ * them with the existing zettel previews which are hard-coded in the source
+ * code of the website.
+ *
+ * @param baseUrl: the URL for the zettel-service
+ * @param zettels: the hardcoded, custom zettels in the source code 
+ * @return: a list of zettels to be rendered 
+ */
+const fetchZettels = async (zettels, baseUrl) => {
+    const request = {
+        method: "GET",
+        headers: {
+            "Content-Type": "appplication/json"
+        }
+    }
+    let response = await fetch(`${baseUrl}/previews`, request)
+    if (response.status !== 200) {
+        return Promise.reject(`Request failed with status: ${response.status}`)
+    }
+    let data = await response.json()
+    data.forEach(d => d.custom = false)
+    let maxZettelId = zettels.reduce((a, b) => a.id > b.id ? a.id : b.id, 0) 
+    data.forEach(d => d.id += maxZettelId)
+    return [...zettels, ...data]
+}
+
+export const Zettelkasten = async () => {
 
     // Hold data about which tags are available & which are selected
     const activeTags = new Set()
     const tags = {}
+    let completeZettels
+    try {
+        completeZettels = await fetchZettels(zettels, baseUrl)
+    } catch(err) {
+        completeZettels = zettels
+    }
 
     /**
      * Looks at the zettels and maps each tag as a unique key such that its
      * values are the zettels that contain that tag; a tag may have one or more
      * associated zettels.
      */
-    zettels.forEach(z => {
+    completeZettels.forEach(z => {
         z.attributes.forEach(tag => {
             tags[tag] = tags[tag] === undefined ? [z] : [...tags[tag], z]
         })
@@ -66,11 +102,11 @@ export const Zettelkasten = () => {
             zettelContainer.removeChild(zettelContainer.lastChild)
         }
         activeTags.size === 0 ? 
-            zettels.forEach(z => {
+            completeZettels.forEach(z => {
                 zettelContainer.appendChild(makeZettelDiv(z))
             })
             : 
-            zettels.forEach(z => {
+            completeZettels.forEach(z => {
                 z.attributes.some(a => activeTags.has(a)) &&
                     zettelContainer.appendChild(makeZettelDiv(z))
             })
@@ -118,14 +154,21 @@ export const Zettelkasten = () => {
      *                        Zettel object
      * @return: a DOM node using zettel data
      */
-    const makeZettelDiv = ({attributes, content, zetId}) => {
+    const makeZettelDiv = ({attributes, content, zetId, custom}) => {
         const zettelDiv = document.createElement("div")
         let zettelTags = ""
         attributes.forEach(a => zettelTags += `#${a} `)
+        custom === true ? 
         zettelDiv.innerHTML = `
             <h4>${zettelTags}</h4>
             <p>${content}<span>.</span></p>
-            <a href="/zettels/${zetId}.html"><div>Read Zettel</div></a>
+            <a href="/zettels/${zetId}.html"><div id="fetch-${zetId}">Read Zettel</div></a>
+        `
+        :
+        zettelDiv.innerHTML = `
+            <h4>${zettelTags}</h4>
+            <p>${content}<span>.</span></p>
+            <a onclick="fetchZettel(${zetId})"><div id="fetch-${zetId}">Read Zettel</div></a>
         `
         return zettelDiv
     }

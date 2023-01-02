@@ -103,6 +103,49 @@ p > a {
     color: var(--primary-color);
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100000000000000000000;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    margin: 10% auto;
+    background: var(--bg-color);
+    border: 3px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    width: 60%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: 1s;
+}
+
+.modal-content > h1 {
+  color: var(--primary-color);
+  font-weight: var(--txt-wt-bd);
+  margin: 0 0 15px 0;
+}
+
+.modal-content > h2 {
+  color: var(--primary-color);
+  font-weight: var(--txt-wt-bd);
+  margin: 0 0 5px 0;
+}
+
+.modal-content > p {
+  color: var(--txt-clr-lt);
+  font-weight: var(--txt-wt-lt);
+  font-size: var(--txt-sz-sm);
+  margin: 0 0 25px 0;
+}
+
 #tags {
     width: 100%;
     color: var(--primary-color);
@@ -223,6 +266,10 @@ p > a {
         margin: 20px 10px;
     }
 
+    .modal-content {
+        width: 65%;
+    }
+
     #zettel-container > div {
         width: 330px;
     }
@@ -231,6 +278,10 @@ p > a {
 @media (max-width: 790px) {
     #zettel-container {
         grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 70%;
     }
 
     #zettel-container > div {
@@ -247,6 +298,10 @@ p > a {
     #tags {
         margin-bottom: 50px;
     }
+
+    .modal-content {
+        width: 75%;
+    }
     
     main {
         margin-top: calc(115px + 2.8rem);
@@ -258,6 +313,10 @@ p > a {
         margin: 5px 5px;
     }
 
+    .modal-content {
+        width: 80%;
+    }
+
     main {
         margin-top: calc(70px + 2.8rem);
     }
@@ -266,5 +325,21 @@ p > a {
 @media (max-width: 400px) {
     #zettel-container > div {
         width: 280px;
+    }
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
