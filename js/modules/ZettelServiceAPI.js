@@ -1,4 +1,4 @@
-const baseUrl = "http://ec2-54-176-135-148.us-west-1.compute.amazonaws.com:8080"
+const baseUrl = "https://ec2-54-176-135-148.us-west-1.compute.amazonaws.com:8443"
 
 const converter = new showdown.Converter()
 
