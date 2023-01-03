@@ -117,7 +117,7 @@ header > section > div > a:hover {
 }
 
 header > nav {
-    grid-column: -1 / -6;
+    grid-column: -1 / -7;
     justify-content: end;
     align-items: center;
     display: flex;
@@ -181,21 +181,33 @@ header > nav > a > div:hover {
 }
 
 
-@media (max-width: 1780px) {
+@media (max-width: 1860px) {
     header > nav > a {
         margin-left: 4rem;
     }
 }   
 
-@media (max-width: 1640px) {
+@media (max-width: 1700px) {
     header > nav > a {
         margin-left: 3rem;
     }
 }   
 
+@media (max-width: 1540px) {
+    header > nav > a {
+        margin-left: 2.8rem;
+    }
+}   
+
+@media (max-width: 1510px) {
+    header > nav > a {
+        margin-left: 2.6rem;
+    }
+}   
+
 @media (max-width: 1490px) {
     header > nav {
-        grid-column: -1 / -7;
+        grid-column: -1 / -8;
     }
 }   
 
@@ -219,8 +231,14 @@ header > nav > a > div:hover {
     }
 }
 
+@media (max-width: 1045px) {
+    header > nav > a {
+        margin-left: 2.1rem;
+    }
+}   
+
 /* mobile view for header & navbar */
-@media (max-width: 900px) {
+@media (max-width: 990px) {
     body {
         overflow-x: hidden;
     }
