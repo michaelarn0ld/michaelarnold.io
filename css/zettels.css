@@ -128,22 +128,22 @@ p > a {
 }
 
 .modal-content > h1 {
-  color: var(--primary-color);
-  font-weight: var(--txt-wt-bd);
-  margin: 0 0 15px 0;
+    color: var(--primary-color);
+    font-weight: var(--txt-wt-bd);
+    margin: 0 0 15px 0;
 }
 
 .modal-content > h2 {
-  color: var(--primary-color);
-  font-weight: var(--txt-wt-bd);
-  margin: 0 0 5px 0;
+    color: var(--primary-color);
+    font-weight: var(--txt-wt-bd);
+    margin: 0 0 5px 0;
 }
 
 .modal-content > p {
-  color: var(--txt-clr-lt);
-  font-weight: var(--txt-wt-lt);
-  font-size: var(--txt-sz-sm);
-  margin: 0 0 25px 0;
+    color: var(--txt-clr-lt);
+    font-weight: var(--txt-wt-lt);
+    font-size: var(--txt-sz-sm);
+    margin: 0 0 25px 0;
 }
 
 #tags {
@@ -342,4 +342,22 @@ p > a {
     to {
         opacity: 1;
     }
+}
+
+#close-btn {
+    background-color: var(--primary-color);
+    font-weight: var(--txt-wt-bd);
+    color: var(--txt-clr-dk);
+    font-size: var(--txt-sz-md);
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+
+#close-btn:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(98, 250, 136, 0.6);
 }

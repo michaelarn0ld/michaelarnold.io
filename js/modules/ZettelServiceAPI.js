@@ -15,7 +15,13 @@ const renderZettelModal = (zettel) => {
 
     html += "<h2>Tags</h2>"
     html += `<p>${tags}</p>`
+    html += "<div id=\"close-btn\">Close Zettel</div>"
     content.innerHTML = html
+    const closeBtn = document.querySelector('#close-btn')
+    const closeModal = () => {
+        modal.style.display = 'none'
+    }
+    closeBtn.addEventListener('click', closeModal)
     modal.style.display = 'block'
 }
 
