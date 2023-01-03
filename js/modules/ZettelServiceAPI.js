@@ -1,4 +1,4 @@
-const baseUrl = "https://ec2-54-176-135-148.us-west-1.compute.amazonaws.com:8443"
+const baseUrl = "https://www.zettels.io:8443"
 
 const converter = new showdown.Converter()
 

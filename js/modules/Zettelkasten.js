@@ -37,7 +37,7 @@
 import { zettels } from "../data/Zettels.js" 
 zettels.forEach(z => z.custom = true)
 
-const baseUrl = "https://ec2-54-176-135-148.us-west-1.compute.amazonaws.com:8443"
+const baseUrl = "https://www.zettels.io:8443"
 
 /**
  * This function fetches the zettel previews from the zettel service and merges
