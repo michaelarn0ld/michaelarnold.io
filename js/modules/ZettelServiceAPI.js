@@ -8,7 +8,8 @@ const renderZettelModal = (zettel) => {
     let contentArr = zettel.content.split('\n')
     let tagsIndex = contentArr.indexOf("## Tags")
     let contentSubArr = contentArr.slice(0, tagsIndex)
-    let markdownStr = contentSubArr.join('\n')
+    let markdownStr = contentSubArr.join('\n').replaceAll('\\', '\n')
+    console.log(markdownStr)
     let tags = contentArr[tagsIndex+1]
 
     let html = converter.makeHtml(markdownStr)
