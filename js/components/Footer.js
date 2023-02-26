@@ -14,7 +14,7 @@ class Footer extends HTMLElement {
                 <a href="https://github.com/michaelarn0ld/michaelarnold.io/issues/new"
                 target="_blank">
                 here</a>.</p>
-                <p>Copyright © 2022 Michael Arnold.</p>
+                <p>Copyright © 2023 Michael Arnold.</p>
             </footer>
         `
     }
