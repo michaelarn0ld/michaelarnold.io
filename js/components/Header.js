@@ -29,7 +29,6 @@ class Header extends HTMLElement {
                     <a href="/work.html">Work</a>
                     <a href="/about.html">About</a>
                     <a href="/zettels/zettels.html">Zettels</a>
-                    <a href="/health.html">Health</a>
                     <a href="/contact.html"><div>Contact Me</div></a>
                 </nav>
                 <div class="burger">
