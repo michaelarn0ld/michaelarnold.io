@@ -26,7 +26,7 @@ class Header extends HTMLElement {
                     </div>
                 </section>
                 <nav class="nav-links">
-                    <a href="/work.html">Work</a>
+                    <a href="/work.html">Porjects</a>
                     <a href="/about.html">About</a>
                     <a href="/zettels/zettels.html">Zettels</a>
                     <a href="/contact.html"><div>Contact Me</div></a>
