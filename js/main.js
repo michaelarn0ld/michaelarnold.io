@@ -7,7 +7,6 @@ import { Typewriter } from './modules/Typewriter.js'
 import { HeroGSAP } from './modules/HeroGSAP.js'
 import { EmailContactService } from './modules/EmailContactService.js'
 import { Zettelkasten } from './modules/Zettelkasten.js'
-import { HealthService } from './modules/HealthService.js'
 
 
 /* -----------------------
@@ -34,7 +33,6 @@ const heroWords = [
  * ------ */
 
 const main = () => {
-
     // Mobile Navbar View allows the navbar layout to change on mobile screens
     MobileNavbarView()
 
@@ -46,9 +44,6 @@ const main = () => {
 
     // Email Contact Service send emails from contact form submission
     pageName == "contact.html" && EmailContactService()
-
-    // Health tracker service
-    pageName == "health.html" && HealthService()
 }
 
 main()
