@@ -1,76 +1,10 @@
 # michaelarnold.io
 
-This project is a portfolio website that is meant to showcase my professional,
-academic, and personal endeavors. Accessible from the home page are: project,
-bio, zettels, and contact pages.
+This repository provides the source code for my personal website.
 
-## Technologies
-- HTML5
-- CSS3
-- JavaScript
-- GSAP
-
-## Directory Structure/Navigation
-All assets of the website abide by the following rules:
-
-- Each page contains two CSS files; "styles.css" handles component styling and
-global styles, "page_name.css" contains page specific styling.
-
-- Each page loads multiple JS files; "component_name.js" is reserved for
-reusable components across the site, "main.js" handles modules and functions.
-
-- The "main.js" file imports dependencies from the ./js/modules directory. Note
-that "main.js" does not contain any documentation for its imports; to see module
-specific documentation, please view the file located at the import path.
-
-```
-.
-|-- index.html
-|-- work.html
-|-- about.html
-|-- contact.html
-|-- zettels
-|   |-- zettels.html
-|   |-- {ZETTEL_ID}.html
-|   |-- ...
-|
-|-- js
-|    |-- main.js
-|    |-- data
-|    |   |-- Zettels.js
-|    |
-|    |-- modules
-|    |   |-- MobileNavbarView.js
-|    |   |-- Typewriter.js
-|    |   |-- HeroGSAP.js
-|    |   |-- EmailContactService.js
-|    |   |-- Zettelkasten.js
-|    |
-|    |-- components
-|        |-- Header.js
-|        |-- Footer.js
-|
-|-- css
-|   |-- styles.css
-|   |-- index.css
-|   |-- work.css
-|   |-- about.css
-|   |-- contact.css
-|   |-- zettels.css
-|   |-- zettel.css
-|
-|-- img
-|   |-- github.svg
-|   |-- linkedin.svg
-|   |-- ...
-|
-|-- resources
-|   |-- resume.pdf
-|   |-- favicon.ico
-|
-|-- README.md
-|-- .gitignore
-```
+## Versioning
+- 2.0 -> main
+- 1.0 -> v1.0 (deprecated 12/10/2023)
 
 ## Hosting
 The hosting and SSL for this project are provided by Netlify.
