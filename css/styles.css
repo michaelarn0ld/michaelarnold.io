@@ -125,6 +125,8 @@ main > div {
 }
 
 .grid-3 > div > a {
+  width: 40px;
+  height: 40px;
   margin: 15px;
 }
 
@@ -134,6 +136,12 @@ main > div {
     grid-column-start: 1;
     grid-column-end: 5;
     grid-row: 3;
+  }
+
+  .grid-3 > div > a {
+    width: 70px;
+    height: 70px;
+    margin: 15px;
   }
 }
 
