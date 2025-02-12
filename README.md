@@ -1,7 +1,6 @@
 # michaelarnold.io
 
-This repository provides the source code for my personal website. I am migrating
-to Svelte.
+This repository provides the source code for my personal website.
 
 ## Versioning
 - 2.0 -> main
