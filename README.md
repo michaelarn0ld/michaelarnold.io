@@ -3,7 +3,8 @@
 This repository provides the source code for my personal website.
 
 ## Versioning
-- 2.0 -> main
+- 3.0 -> main
+- 2.0 -> v2.0 (deprecated 02/14/2025)
 - 1.0 -> v1.0 (deprecated 12/10/2023)
 
 ## Hosting
