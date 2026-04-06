@@ -1,116 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Michael Arnold</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background-color: #f9f9f9;
-      color: #333;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-    }
+<title>Michael Arnold</title>
 
-    header {
-      text-align: center;
-      padding-bottom: 20px;
-    }
+<style>
 
-    header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+:root{
+  --bg:#1f1f1f;
+  --text:#ffffff;
+  --muted:#b5b5b5;
+  --border:#3a3a3a;
+  --link:#8ab4ff;
+}
 
-    h2 {
-      color: #2c3e50;
-      margin-top: 40px;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-    }
+*{
+  box-sizing:border-box;
+}
 
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+.container{
+  max-width:720px;
+  margin:auto;
+  padding:70px 20px;
+}
 
-    ul {
-      padding-left: 20px;
-    }
+header{
+  text-align:center;
+  margin-bottom:60px;
+}
 
-    @media (max-width: 600px) {
-      header img {
-        width: 120px;
-        height: 120px;
-      }
+header img{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:18px;
+}
 
-      .container {
-        padding: 15px;
-      }
-    }
-  </style>
+h1{
+  margin:0;
+  font-size:2rem;
+  font-weight:600;
+}
+
+.subtitle{
+  color:var(--muted);
+  margin-top:6px;
+  font-size:0.95rem;
+}
+
+.socials{
+  margin-top:14px;
+}
+
+.socials a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:var(--muted);
+  text-decoration:none;
+  font-size:0.9rem;
+}
+
+.socials a:hover{
+  color:var(--text);
+}
+
+nav{
+  margin-top:20px;
+}
+
+nav a{
+  margin:0 12px;
+  font-size:0.9rem;
+  color:var(--muted);
+  text-decoration:none;
+}
+
+nav a:hover{
+  color:var(--text);
+}
+
+section{
+  margin-top:55px;
+}
+
+h2{
+  font-size:1.1rem;
+  font-weight:600;
+  margin-bottom:12px;
+  padding-bottom:6px;
+  border-bottom:1px solid var(--border);
+}
+
+p{
+  margin:12px 0;
+}
+
+ul{
+  margin:10px 0;
+  padding-left:18px;
+}
+
+li{
+  margin:4px 0;
+}
+
+a{
+  color:var(--link);
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+footer{
+  margin-top:70px;
+  text-align:center;
+  font-size:0.85rem;
+  color:var(--muted);
+}
+
+.github-icon{
+  width:16px;
+  height:16px;
+  fill:currentColor;
+}
+
+@media(max-width:600px){
+
+.container{
+  padding:50px 18px;
+}
+
+h1{
+  font-size:1.6rem;
+}
+
+}
+
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <img src="me.jpg" alt="Michael Arnold" />
-      <h1>Hello World</h1>
-    </header>
 
-    <p>I'm a technologist with deep knowledge in platform and infrastructure development. Since May 2024, I've been at Amazon in San Diego, where I build supply-side advertising moderation software for the Advertising Trust team. Before this, I spent a few years with Amazon Web Services in Palo Alto, where I designed and developed testing and deployment infrastructure for RDS Aurora MySQL.</p>
+<div class="container">
 
-    <p>I have experience developing resilient deployment frameworks for global services, designing fault-tolerant and scalable distributed systems, and collaborating with product managers to deliver software features used by millions of users.</p>
+<header>
 
-    <p>I am a lifelong learner and am passionate in the pursuit of personal growth. In my free time, you're likely to find me engaged in one of my hobbies, or working on some personal coding projects. Code reflects life, so I often try to codify various components of my own life.</p>
+<img src="me.jpg" alt="Michael Arnold">
 
-    <p>If you want to reach me, please email me directly:</p>
-    <p>
-      Email: <a href="mailto:me@michaelarnold.io">me@michaelarnold.io</a>
-    </p>
+<h1>Michael Arnold</h1>
 
-    <h2>Professional Interests</h2>
-    <ul>
-      <li>Cloud Computing</li>
-      <li>Deployment Infrastructure</li>
-      <li>Microservices</li>
-      <li>OOP</li>
-      <li>Scripting</li>
-    </ul>
+<div class="subtitle">
+Software Engineer · Distributed Systems · Infrastructure
+</div>
 
-    <h2>Hobbies</h2>
-    <ul>
-      <li>Calisthenics</li>
-      <li>Surfing</li>
-      <li>Skiing</li>
-      <li>Cooking</li>
-    </ul>
+<div class="socials">
+<a href="https://github.com/michaelarn0ld" target="_blank">
 
-    <h2>Tech</h2>
-    <ul>
-      <li>Java</li>
-      <li>Typescript</li>
-      <li>Python</li>
-      <li>Ruby</li>
-      <li>Shell</li>
-      <li>Perl</li>
-    </ul>
+<svg class="github-icon" viewBox="0 0 24 24">
+<path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 
+9.8 8.205 11.385.6.113.82-.258.82-.577 
+0-.285-.01-1.04-.015-2.04-3.338.724-4.042
+-1.61-4.042-1.61-.546-1.387-1.333-1.757
+-1.333-1.757-1.089-.744.083-.729.083-.729
+1.205.084 1.84 1.237 1.84 1.237
+1.07 1.835 2.807 1.305 3.492.998
+.108-.776.418-1.305.762-1.605
+-2.665-.3-5.466-1.332-5.466-5.93
+0-1.31.468-2.382 1.236-3.222
+-.123-.303-.535-1.523.117-3.176
+0 0 1.008-.322 3.301 1.23
+.957-.266 1.983-.399 3.003-.404
+1.02.005 2.047.138 3.006.404
+2.291-1.552 3.297-1.23 3.297-1.23
+.653 1.653.241 2.873.118 3.176
+.77.84 1.235 1.912 1.235 3.222
+0 4.61-2.804 5.625-5.475 5.921
+.43.372.823 1.102.823 2.222
+0 1.606-.015 2.898-.015 3.293
+0 .321.216.694.825.576
+C20.565 21.795 24 17.297 24 12
+24 5.37 18.627 0 12 0z"/>
+</svg>
 
-  </div>
+GitHub
+
+</a>
+</div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#interests">Interests</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+
+<section id="about">
+
+<p>
+I'm a software engineer with expertise in distributed systems and platform
+engineering. I currently work at Amazon Advertising in San Diego,
+where I build event-driven systems that model and enforce advertising policy,
+in real time, across large-scale global ad serving infrastructure.
+</p>
+
+<p>
+Previously I worked at AWS on the Aurora MySQL team, where I developed the
+software platform and deployment infrastructure used to validate database
+releases across AWS regions worldwide.
+</p>
+
+<p>
+My work generally sits at the intersection of scalable backend
+architecture, event-driven systems, and developer infrastructure.
+I enjoy building reliable systems that automate complex operational
+workflows and enable large engineering organizations to move faster and deliver more.
+</p>
+
+<p>
+Outside of work I'm usually surfing, traveling, or experimenting with
+hobbyist projects that automate pieces of my life. I love to dive deep and am
+motivated by curiosity and a desire to keep learning.
+</p>
+
+</section>
+
+
+<section id="interests">
+
+<h2>Professional Interests</h2>
+
+<ul>
+<li>Agentic development</li>
+<li>Systems engineering</li>
+<li>Cloud-native infrastructure</li>
+<li>Distributed computing</li>
+<li>Software architecture</li>
+</ul>
+
+</section>
+
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<p>
+Email: <a href="mailto:me@michaelarnold.io">me@michaelarnold.io</a>
+</p>
+
+</section>
+
+
+<footer>
+
+© 2026 Michael Arnold
+
+</footer>
+
+</div>
+
 </body>
 </html>
-
