@@ -1,0 +1,30 @@
+---
+interface Props {
+  topics: string[];
+}
+const { topics } = Astro.props;
+---
+
+<div class="filter-bar">
+  {
+    topics.length > 0 && (
+      <div class="topics" data-role="topics">
+        {topics.map((t) => (
+          <button type="button" data-tag={t} aria-pressed="false">
+            {t}
+          </button>
+        ))}
+      </div>
+    )
+  }
+
+  <div class="date-range">
+    <label>
+      From <input type="date" data-role="date-from" />
+    </label>
+    <label>
+      To <input type="date" data-role="date-to" />
+    </label>
+    <button type="button" class="reset" data-role="reset">Reset</button>
+  </div>
+</div>

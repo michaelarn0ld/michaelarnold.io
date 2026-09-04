@@ -1,0 +1,395 @@
+:root {
+  --bg: #1f1f1f;
+  --text: #ffffff;
+  --muted: #b5b5b5;
+  --border: #3a3a3a;
+  --link: #8ab4ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.container {
+  max-width: 720px;
+  margin: auto;
+  padding: 70px 20px;
+}
+
+/* ---- Site header / nav ---- */
+.site-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.site-header img.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 18px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+.socials {
+  margin-top: 14px;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.socials a:hover {
+  color: var(--text);
+}
+
+nav.main-nav {
+  margin-top: 20px;
+}
+
+nav.main-nav a {
+  margin: 0 12px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+nav.main-nav a:hover,
+nav.main-nav a[aria-current="page"] {
+  color: var(--text);
+}
+
+/* ---- Sections & typography ---- */
+section {
+  margin-top: 55px;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+p {
+  margin: 12px 0;
+}
+
+ul {
+  margin: 10px 0;
+  padding-left: 18px;
+}
+
+li {
+  margin: 4px 0;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 70px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.github-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ---- Blog list ---- */
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list li {
+  margin: 0 0 18px;
+}
+
+.post-list a.post-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.post-list a.post-title:hover {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.post-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 2px 0 6px;
+}
+
+.post-excerpt {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---- Blog post body ---- */
+.prose h1 {
+  margin-bottom: 6px;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.prose pre {
+  background: #141414;
+  border: 1px solid var(--border);
+  padding: 14px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.tag-list {
+  margin-left: 8px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 1px 8px;
+  margin-left: 4px;
+}
+
+/* Filtered/paginated-out items must stay hidden even when a more specific
+   display rule (e.g. .gallery .photo { display: block }) would override the
+   default [hidden] behavior. */
+[data-item][hidden] {
+  display: none !important;
+}
+
+/* ---- Filter bar ---- */
+.filter-bar {
+  margin-bottom: 28px;
+}
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.topics button {
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.topics button:hover {
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+.topics button[aria-pressed="true"] {
+  color: var(--bg);
+  background: var(--link);
+  border-color: var(--link);
+}
+
+.date-range {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.date-range input[type="date"] {
+  font: inherit;
+  color: var(--text);
+  background: #141414;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  color-scheme: dark;
+}
+
+.date-range .reset {
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.date-range .reset:hover {
+  color: var(--text);
+}
+
+.date-range .count {
+  margin-left: auto;
+}
+
+/* ---- Pagination ---- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.pagination button {
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: var(--link);
+}
+
+.pagination button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.pagination .page-info {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---- Photo gallery ---- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.gallery .photo {
+  position: relative;
+  display: block;
+  line-height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gallery .photo img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dark overlay + caption, visible by default; fades out on hover/focus. */
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.photo-caption {
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.gallery .photo:hover .photo-overlay,
+.gallery .photo:focus-visible .photo-overlay {
+  opacity: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 700px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .date-range .count {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 50px 18px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}

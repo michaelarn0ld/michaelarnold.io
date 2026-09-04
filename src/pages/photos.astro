@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import FilterBar from '../components/FilterBar.astro';
+import Pagination from '../components/Pagination.astro';
+import photoMeta from '../data/photoMeta.json';
+
+type Meta = { caption: string; tags: string[]; date: string };
+const meta = photoMeta as Record<string, Meta>;
+
+// Eagerly import every image in src/assets/photos so Astro optimizes them.
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/photos/*.{jpg,jpeg,png,webp,avif}',
+  { eager: true },
+);
+
+const photos = Object.entries(modules)
+  .map(([path, mod]) => {
+    const base = path.split('/').pop()!.replace(/\.[^.]+$/, '');
+    const m = meta[base] ?? { caption: base, tags: [], date: '' };
+    return { img: mod.default, base, ...m };
+  })
+  .sort((a, b) => b.date.localeCompare(a.date));
+
+const topics = [...new Set(photos.flatMap((p) => p.tags))]
+  .filter(Boolean)
+  .sort();
+---
+
+<BaseLayout title="Photos — Michael Arnold" description="Photography by Michael Arnold.">
+  <header class="site-header">
+    <h1>Photos</h1>
+    <div class="subtitle">Moments from my life.</div>
+    <Nav />
+  </header>
+
+  <section data-filterable data-page-size="12">
+    <FilterBar topics={topics} />
+
+    <div class="gallery" data-role="items">
+      {
+        photos.map((p) => (
+          <a
+            class="photo"
+            href={p.img.src}
+            target="_blank"
+            rel="noopener"
+            data-item
+            data-date={p.date}
+            data-tags={p.tags.join(',')}
+          >
+            <Image
+              src={p.img}
+              alt={p.caption}
+              widths={[300, 600, 900]}
+              sizes="(max-width: 600px) 50vw, (max-width: 700px) 50vw, 33vw"
+              loading="lazy"
+            />
+            <span class="photo-overlay">
+              <span class="photo-caption">{p.caption}</span>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="post-excerpt" data-role="empty" hidden>
+      No photos match those filters.
+    </p>
+
+    <Pagination />
+  </section>
+</BaseLayout>
+
+<script>
+  import { initAllFilterables } from '../scripts/collectionFilter';
+  initAllFilterables();
+</script>
