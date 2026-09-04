@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import Pagination from '../../components/Pagination.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+
+// All unique topics, alphabetized, for the filter chips.
+const topics = [...new Set(posts.flatMap((p) => p.data.tags))]
+  .filter(Boolean)
+  .sort();
+
+const dateFmt = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const isoDate = (d: Date) => d.toISOString().slice(0, 10);
+---
+
+<BaseLayout title="Blog — Michael Arnold" description="Writing by Michael Arnold.">
+  <header class="site-header">
+    <h1>Blog</h1>
+    <div class="subtitle">Notes, thoughts, and things I'm figuring out.</div>
+    <Nav />
+  </header>
+
+  <section data-filterable data-page-size="8">
+    <FilterBar topics={topics} />
+
+    <ul class="post-list" data-role="items">
+      {
+        posts.map((post) => (
+          <li
+            data-item
+            data-date={isoDate(post.data.pubDate)}
+            data-tags={post.data.tags.join(',')}
+          >
+            <a class="post-title" href={`/blog/${post.id}/`}>
+              {post.data.title}
+            </a>
+            <div class="post-meta">
+              {dateFmt.format(post.data.pubDate)}
+              {post.data.tags.length > 0 && (
+                <span class="tag-list">
+                  {post.data.tags.map((t) => (
+                    <span class="tag">{t}</span>
+                  ))}
+                </span>
+              )}
+            </div>
+            {post.data.description && (
+              <p class="post-excerpt">{post.data.description}</p>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="post-excerpt" data-role="empty" hidden>
+      No posts match those filters.
+    </p>
+
+    <Pagination />
+  </section>
+</BaseLayout>
+
+<script>
+  import { initAllFilterables } from '../../scripts/collectionFilter';
+  initAllFilterables();
+</script>

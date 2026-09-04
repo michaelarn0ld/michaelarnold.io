@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const dateFmt = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={`${post.data.title} — Michael Arnold`} description={post.data.description}>
+  <header class="site-header">
+    <Nav />
+  </header>
+
+  <article class="prose">
+    <a class="back-link" href="/blog">← All posts</a>
+    <h1>{post.data.title}</h1>
+    <div class="post-meta">{dateFmt.format(post.data.pubDate)}</div>
+    <Content />
+  </article>
+</BaseLayout>

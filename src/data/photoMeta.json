@@ -1,0 +1,69 @@
+{
+  "diamond-head": {
+    "caption": "Diamond Head",
+    "tags": [
+      "travel",
+      "hawaii"
+    ],
+    "date": "2026-09-04"
+  },
+  "ala-moana": {
+    "caption": "Ala Moana",
+    "tags": [
+      "travel",
+      "hawaii"
+    ],
+    "date": "2026-09-04"
+  },
+  "mag-rock": {
+    "caption": "Mag Rock",
+    "tags": [
+      "travel",
+      "surf",
+      "nicaragua"
+    ],
+    "date": "2026-07-29"
+  },
+  "remanso": {
+    "caption": "Playa Remanso",
+    "tags": [
+      "travel",
+      "surf",
+      "nicaragua"
+    ],
+    "date": "2026-07-28"
+  },
+  "playa-amarilla": {
+    "caption": "Playa Amarilla",
+    "tags": [
+      "travel",
+      "surf",
+      "nicaragua"
+    ],
+    "date": "2026-07-25"
+  },
+  "911-memorial": {
+    "caption": "911 Memorial",
+    "tags": [
+      "travel",
+      "nyc"
+    ],
+    "date": "2025-09-11"
+  },
+  "lower-manhattan": {
+    "caption": "Lower Manhattan",
+    "tags": [
+      "travel",
+      "nyc"
+    ],
+    "date": "2025-09-11"
+  },
+  "fujiyoshida": {
+    "caption": "Fujiyoshida, Japan",
+    "tags": [
+      "travel",
+      "japan"
+    ],
+    "date": "2025-06-06"
+  }
+}
