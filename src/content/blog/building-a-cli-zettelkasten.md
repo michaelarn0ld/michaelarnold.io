@@ -53,7 +53,7 @@ I don't use Notion, Obsidian, or Roam. I don't want a heavy Electron app or prop
 I wrote a small Bash script called `zet` that lives in my shell environment. When I want to capture a thought, I run:
 
 ```bash
-zet "Title of the Note"
+zet create "Title of the Note"
 ```
 
 The script:
@@ -82,3 +82,5 @@ This inverted index powers fast tag searching and CLI traversal. Searching acros
 Good software design favors small, composable primitives over monolithic abstractions. Your knowledge base should work the same way. 
 
 By stripping away the overhead of taxonomy and relying on flat hypertext, my Zettelkasten has grown to hundreds of interconnected ideas over five years without falling into disorganization. The value of a note isn't where it lives, it's how easily it connects to everything else you know.
+
+FYI: zet is available for you to use as well, check out the project [here](https://github.com/michaelarn0ld/zet).
