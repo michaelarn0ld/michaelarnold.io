@@ -15,10 +15,10 @@ When I wanted a system that actually scaled over years without maintenance overh
 
 Standard hierarchical note-taking suffers from two structural flaws:
 
-1. **Folder boundaries isolate context**: A note on concurrency in Go might be relevant to distributed systems, performance tuning, and technical interview prep. If it lives inside `interviews/algorithms/`, you lose its connection to real-world architectures.
+1. **Folder boundaries isolate context**: When you write a  note on concurrency in Go, in the moment you might think that note is relevant to distributed systems, performance tuning, and technical interview prep. Well, if it lives inside `interviews/algorithms/`, you lose its connection to the other branches; the association to performance tuning or distributed systems is lost to the ether.
 2. **Taxonomy fatigue**: As your library grows, the folder tree becomes fragile. Reorganizing folders breaks your flow and produces orphan notes you will never open again.
 
-A Zettelkasten solves this by replacing hierarchy with **hypertext**—the same model that makes the web work. Instead of filing notes away into drawers, you link them together.
+A Zettelkasten solves this by replacing hierarchy with **hypertext**, the same model that makes the web work. Instead of filing notes away into drawers, you link them together.
 
 ## The Anatomy of a Zettel
 
@@ -81,4 +81,4 @@ This inverted index powers fast tag searching and CLI traversal. Searching acros
 
 Good software design favors small, composable primitives over monolithic abstractions. Your knowledge base should work the same way. 
 
-By stripping away the overhead of taxonomy and relying on flat hypertext, my Zettelkasten has grown to hundreds of interconnected ideas over five years without falling into disorganization. The value of a note isn't where it lives—it's how easily it connects to everything else you know.
+By stripping away the overhead of taxonomy and relying on flat hypertext, my Zettelkasten has grown to hundreds of interconnected ideas over five years without falling into disorganization. The value of a note isn't where it lives, it's how easily it connects to everything else you know.
