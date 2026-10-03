@@ -1,4 +1,12 @@
 {
+  "ocean-beach-pier": {
+    "caption": "Ocean Beach Pier, San Diego",
+    "tags": [
+      "travel",
+      "california"
+    ],
+    "date": "2026-09-27"
+  },
   "diamond-head": {
     "caption": "Diamond Head, O'ahu",
     "tags": [
@@ -65,5 +73,21 @@
       "japan"
     ],
     "date": "2025-06-06"
+  },
+  "osaka-skyline": {
+    "caption": "Osaka Skyline, Japan",
+    "tags": [
+      "travel",
+      "japan"
+    ],
+    "date": "2024-04-17"
+  },
+  "mount-takao": {
+    "caption": "Mount Takao, Japan",
+    "tags": [
+      "travel",
+      "japan"
+    ],
+    "date": "2024-04-17"
   }
 }
