@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import awayPhoto from '../assets/away.jpg';
 ---
 
 <!doctype html>
@@ -25,7 +23,7 @@ import awayPhoto from '../assets/away.jpg';
           </span>
         </header>
 
-        <!-- Message + dynamic typewriter -->
+        <!-- Message + dynamic typewriter + email CTA (centered) -->
         <section class="message-section" aria-label="Status message">
           <p class="greeting">sorry, couldn't get to you right now.</p>
           <div class="terminal-line" aria-live="polite">
@@ -35,50 +33,17 @@ import awayPhoto from '../assets/away.jpg';
               <span class="cursor" aria-hidden="true">█</span>
             </span>
           </div>
+
+          <div class="cta-wrapper">
+            <a href="mailto:me@michaelarnold.io" class="email-cta">
+              <span>email me</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
         </section>
 
-        <!-- Photo frame -->
-        <figure class="photo-card">
-          <div class="image-wrapper">
-            <Image
-              src={awayPhoto}
-              alt="Pacific horizon at dusk"
-              widths={[340, 680, 1020]}
-              sizes="(max-width: 600px) 88vw, 380px"
-              loading="eager"
-              decoding="async"
-              class="photo-img"
-            />
-          </div>
-          <figcaption class="photo-caption">
-            <span class="coords">32.7414° N, 117.2549° W</span>
-            <span class="sep">/</span>
-            <span class="loc">pacific ocean</span>
-          </figcaption>
-        </figure>
-
-        <!-- Footer links -->
-        <footer class="footer-bar">
-          <a href="mailto:me@michaelarnold.io" class="nav-link">email</a>
-          <span class="nav-sep">·</span>
-          <a
-            href="https://github.com/michaelarn0ld"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="nav-link"
-          >
-            github
-          </a>
-          <span class="nav-sep">·</span>
-          <a
-            href="https://www.linkedin.com/in/michaelarn0ld/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="nav-link"
-          >
-            linkedin
-          </a>
-        </footer>
+        <!-- Invisible spacer to keep center optical alignment -->
+        <div class="bottom-spacer" aria-hidden="true"></div>
       </div>
     </main>
 
@@ -147,7 +112,6 @@ import awayPhoto from '../assets/away.jpg';
 
       :root {
         --bg: #09090b;
-        --surface: #121215;
         --border: rgba(255, 255, 255, 0.08);
         --border-hover: rgba(255, 255, 255, 0.22);
         --text: #f4f4f5;
@@ -160,7 +124,7 @@ import awayPhoto from '../assets/away.jpg';
       html,
       body {
         width: 100%;
-        min-height: 100%;
+        height: 100%;
         background-color: var(--bg);
         color: var(--text);
         font-family: var(--font-mono);
@@ -175,17 +139,18 @@ import awayPhoto from '../assets/away.jpg';
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: safe center;
-        padding: clamp(28px, 5vh, 48px) 20px;
+        justify-content: space-between;
+        padding: clamp(28px, 5vh, 48px) 24px;
         box-sizing: border-box;
       }
 
       .shell {
         width: 100%;
-        max-width: 400px;
+        max-width: 600px;
+        flex: 1;
         display: flex;
         flex-direction: column;
-        gap: clamp(20px, 3.5vh, 28px);
+        justify-content: space-between;
       }
 
       /* Top header */
@@ -193,6 +158,7 @@ import awayPhoto from '../assets/away.jpg';
         display: flex;
         align-items: center;
         justify-content: space-between;
+        width: 100%;
       }
 
       .brand {
@@ -228,28 +194,35 @@ import awayPhoto from '../assets/away.jpg';
         text-transform: lowercase;
       }
 
-      /* Message & typewriter */
+      /* Message & typewriter (centered in viewport) */
       .message-section {
+        margin: auto 0;
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 14px;
         line-height: 1.5;
+        padding: 40px 0;
       }
 
       .greeting {
-        font-size: clamp(0.92rem, 2.5vw, 1.02rem);
+        font-size: clamp(1rem, 2.8vw, 1.25rem);
         color: var(--text-dim);
         font-weight: 400;
+        letter-spacing: -0.01em;
       }
 
       .terminal-line {
         display: flex;
         flex-wrap: wrap;
         align-items: baseline;
-        gap: 6px;
-        font-size: clamp(0.92rem, 2.5vw, 1.02rem);
+        justify-content: center;
+        gap: 8px;
+        font-size: clamp(1.05rem, 3.2vw, 1.35rem);
         color: var(--text);
-        min-height: 1.5em;
+        min-height: 1.6em;
       }
 
       .prompt-label {
@@ -268,7 +241,7 @@ import awayPhoto from '../assets/away.jpg';
 
       .cursor {
         display: inline-block;
-        margin-left: 2px;
+        margin-left: 3px;
         color: var(--accent);
         font-size: 0.88em;
         line-height: 1;
@@ -287,100 +260,54 @@ import awayPhoto from '../assets/away.jpg';
         }
       }
 
-      /* Photo card */
-      .photo-card {
-        width: 100%;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 8px 8px 11px 8px;
-        display: flex;
-        flex-direction: column;
-        gap: 9px;
-        transition: border-color 0.25s ease;
+      /* Email Call To Action */
+      .cta-wrapper {
+        margin-top: 10px;
       }
 
-      @media (hover: hover) {
-        .photo-card:hover {
-          border-color: var(--border-hover);
-        }
-
-        .photo-card:hover .photo-img {
-          transform: scale(1.018);
-        }
-      }
-
-      .image-wrapper {
-        width: 100%;
-        aspect-ratio: 4 / 5;
-        overflow: hidden;
-        border-radius: 4px;
-        background: #000;
-      }
-
-      .photo-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .photo-caption {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 6px;
-        padding: 0 4px;
-        font-size: 0.72rem;
-        color: var(--text-muted);
-        letter-spacing: 0.02em;
-      }
-
-      .photo-caption .sep {
-        color: rgba(255, 255, 255, 0.15);
-      }
-
-      .photo-caption .loc {
-        color: var(--text-muted);
-      }
-
-      /* Footer */
-      .footer-bar {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding-top: 2px;
-      }
-
-      .nav-link {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        text-decoration: none;
-        letter-spacing: 0.02em;
-        transition: color 0.18s ease;
-        padding: 8px 0;
-        min-height: 44px;
+      .email-cta {
         display: inline-flex;
         align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+        min-height: 44px;
       }
 
       @media (hover: hover) {
-        .nav-link:hover {
-          color: var(--text);
+        .email-cta:hover {
+          background: rgba(255, 255, 255, 0.07);
+          border-color: var(--border-hover);
+          transform: translateY(-1px);
+        }
+
+        .email-cta:hover .arrow {
+          transform: translateX(3px);
         }
       }
 
-      .nav-link:focus-visible {
-        color: var(--text);
+      .email-cta:focus-visible {
         outline: none;
+        border-color: var(--accent);
       }
 
-      .nav-sep {
-        color: rgba(255, 255, 255, 0.15);
-        font-size: 0.75rem;
-        user-select: none;
+      .email-cta .arrow {
+        color: var(--accent);
+        transition: transform 0.2s ease;
+      }
+
+      /* Bottom spacer matches top-bar height for optical centering */
+      .bottom-spacer {
+        height: 28px;
+        width: 100%;
+        pointer-events: none;
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -388,7 +315,7 @@ import awayPhoto from '../assets/away.jpg';
           animation: none;
           opacity: 1;
         }
-        .photo-img {
+        .email-cta {
           transition: none;
         }
       }
@@ -396,16 +323,16 @@ import awayPhoto from '../assets/away.jpg';
       /* Mobile fine-tuning */
       @media (max-width: 480px) {
         .viewport {
-          justify-content: flex-start;
-          padding: 24px 18px 40px 18px;
+          padding: 24px 20px 32px 20px;
         }
 
-        .shell {
-          gap: 22px;
+        .message-section {
+          gap: 12px;
+          padding: 24px 0;
         }
 
-        .photo-caption {
-          font-size: 0.68rem;
+        .terminal-line {
+          gap: 6px;
         }
       }
     </style>
