@@ -47,58 +47,62 @@
       </div>
     </main>
 
-    <script>
-      const states = [
-        'offline.',
-        'in transit.',
-        'away from the terminal.',
-        'recalibrating.',
-        'off-grid.',
-        'watching the ocean.',
-        'somewhere quiet.',
-      ];
+    <script is:inline>
+      (function () {
+        const states = [
+          'offline.',
+          'afk.',
+          'unplugged.',
+          'outside.',
+        ];
 
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const target = document.getElementById('typewriter');
+        function init() {
+          const target = document.getElementById('typewriter');
+          if (!target) return;
 
-      if (target && !prefersReducedMotion) {
-        let stateIdx = 0;
-        let charIdx = states[0].length;
-        let isDeleting = true;
+          let stateIdx = 0;
+          let charIdx = states[0].length;
+          let isDeleting = true;
 
-        const typeSpeed = () => 70 + Math.random() * 35;
-        const deleteSpeed = () => 35 + Math.random() * 20;
+          const typeSpeed = () => 65 + Math.random() * 30;
+          const deleteSpeed = () => 35 + Math.random() * 20;
 
-        const tick = () => {
-          const currentWord = states[stateIdx];
+          function tick() {
+            const currentWord = states[stateIdx];
 
-          if (isDeleting) {
-            charIdx--;
-            target.textContent = currentWord.substring(0, charIdx);
+            if (isDeleting) {
+              charIdx--;
+              target.textContent = currentWord.substring(0, charIdx);
 
-            if (charIdx === 0) {
-              isDeleting = false;
-              stateIdx = (stateIdx + 1) % states.length;
-              setTimeout(tick, 450);
-              return;
+              if (charIdx === 0) {
+                isDeleting = false;
+                stateIdx = (stateIdx + 1) % states.length;
+                setTimeout(tick, 350);
+                return;
+              }
+              setTimeout(tick, deleteSpeed());
+            } else {
+              charIdx++;
+              target.textContent = currentWord.substring(0, charIdx);
+
+              if (charIdx === currentWord.length) {
+                isDeleting = true;
+                setTimeout(tick, 2200);
+                return;
+              }
+              setTimeout(tick, typeSpeed());
             }
-            setTimeout(tick, deleteSpeed());
-          } else {
-            charIdx++;
-            target.textContent = currentWord.substring(0, charIdx);
-
-            if (charIdx === currentWord.length) {
-              isDeleting = true;
-              setTimeout(tick, 2600);
-              return;
-            }
-            setTimeout(tick, typeSpeed());
           }
-        };
 
-        // Start cycling after an initial pause
-        setTimeout(tick, 2200);
-      }
+          setTimeout(tick, 1000);
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init);
+        } else {
+          init();
+        }
+      })();
     </script>
 
     <style>
@@ -310,15 +314,7 @@
         pointer-events: none;
       }
 
-      @media (prefers-reduced-motion: reduce) {
-        .cursor {
-          animation: none;
-          opacity: 1;
-        }
-        .email-cta {
-          transition: none;
-        }
-      }
+
 
       /* Mobile fine-tuning */
       @media (max-width: 480px) {
