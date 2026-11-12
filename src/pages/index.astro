@@ -1,86 +1,413 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Nav from '../components/Nav.astro';
+import { Image } from 'astro:assets';
+import awayPhoto from '../assets/away.jpg';
 ---
 
-<BaseLayout title="Michael Arnold">
-  <header class="site-header">
-    <img class="avatar" src="/me.jpg" alt="Michael Arnold" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Michael Arnold — currently away." />
+    <meta name="theme-color" content="#09090b" />
+    <title>Michael Arnold</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <main class="viewport">
+      <div class="shell">
+        <!-- Top bar: identity + status -->
+        <header class="top-bar">
+          <span class="brand">michael arnold</span>
+          <span class="status-pill" title="Status: Away">
+            <span class="status-dot"></span>
+            <span class="status-text">away</span>
+          </span>
+        </header>
 
-    <h1>Michael Arnold</h1>
+        <!-- Message + dynamic typewriter -->
+        <section class="message-section" aria-label="Status message">
+          <p class="greeting">sorry, couldn't get to you right now.</p>
+          <div class="terminal-line" aria-live="polite">
+            <span class="prompt-label">currently:</span>
+            <span class="dynamic-wrap">
+              <span id="typewriter" class="typewriter-text">offline.</span>
+              <span class="cursor" aria-hidden="true">█</span>
+            </span>
+          </div>
+        </section>
 
-    <div class="subtitle">Engineer, Creative, Autodidactic</div>
+        <!-- Photo frame -->
+        <figure class="photo-card">
+          <div class="image-wrapper">
+            <Image
+              src={awayPhoto}
+              alt="Pacific horizon at dusk"
+              widths={[340, 680, 1020]}
+              sizes="(max-width: 600px) 88vw, 380px"
+              loading="eager"
+              decoding="async"
+              class="photo-img"
+            />
+          </div>
+          <figcaption class="photo-caption">
+            <span class="coords">32.7414° N, 117.2549° W</span>
+            <span class="sep">/</span>
+            <span class="loc">pacific ocean</span>
+          </figcaption>
+        </figure>
 
-    <div class="socials">
-      <a href="https://github.com/michaelarn0ld" target="_blank" rel="noopener">
-        <svg class="github-icon" viewBox="0 0 24 24">
-          <path
-            d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.382 1.236-3.222-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.873.118 3.176.77.84 1.235 1.912 1.235 3.222 0 4.61-2.804 5.625-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .321.216.694.825.576C20.565 21.795 24 17.297 24 12 24 5.37 18.627 0 12 0z"
-          ></path>
-        </svg>
-        GitHub
-      </a>
-    </div>
+        <!-- Footer links -->
+        <footer class="footer-bar">
+          <a href="mailto:me@michaelarnold.io" class="nav-link">email</a>
+          <span class="nav-sep">·</span>
+          <a
+            href="https://github.com/michaelarn0ld"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="nav-link"
+          >
+            github
+          </a>
+          <span class="nav-sep">·</span>
+          <a
+            href="https://www.linkedin.com/in/michaelarn0ld/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="nav-link"
+          >
+            linkedin
+          </a>
+        </footer>
+      </div>
+    </main>
 
-    <Nav />
-  </header>
+    <script>
+      const states = [
+        'offline.',
+        'in transit.',
+        'away from the terminal.',
+        'recalibrating.',
+        'off-grid.',
+        'watching the ocean.',
+        'somewhere quiet.',
+      ];
 
-  <section id="about">
-    <h2>Who I am Professionally</h2>
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const target = document.getElementById('typewriter');
 
-    <p>
-      I'm a software engineer with expertise in distributed systems and platform
-      engineering. I currently work at Amazon Ads in San Diego, where I
-      build event-driven systems that model and enforce advertising policy, in
-      real time, across large-scale global ad serving infrastructure.
-    </p>
+      if (target && !prefersReducedMotion) {
+        let stateIdx = 0;
+        let charIdx = states[0].length;
+        let isDeleting = true;
 
-    <p>
-      Previously I worked at AWS on the Aurora MySQL team, where I developed the
-      software platform and deployment infrastructure used to validate database
-      releases across AWS regions worldwide.
-    </p>
+        const typeSpeed = () => 70 + Math.random() * 35;
+        const deleteSpeed = () => 35 + Math.random() * 20;
 
-    <p>
-      My work generally sits at the intersection of scalable backend
-      architecture, event-driven systems, and developer infrastructure. I enjoy
-      building reliable systems that automate complex operational workflows and
-      enable large engineering organizations to move faster and deliver more.
-    </p>
+        const tick = () => {
+          const currentWord = states[stateIdx];
 
-    <p>
-      I like taking ambiguous and abstract business problems and owning the
-      technical solution end to end, from whiteboard to production. I am known
-      for deep dives that reach the root of a problem, for design docs and demos
-      that make complex systems easy to reason about, and for giving and seeking
-      honest feedback early. I care as much about how a system is understood
-      and maintained as how it performs.
-    </p>
+          if (isDeleting) {
+            charIdx--;
+            target.textContent = currentWord.substring(0, charIdx);
 
-    <p>
-      I work as an AI-native engineer. I leverage agentic workflows to
-      parallelize my workstreams and automate the busywork. That frees me to push forward
-      on several fronts at once and spend my own attention on the judgment calls
-      that matter. It lets me move faster and deliver more on behalf of my
-      customers.
-    </p>
-  </section>
+            if (charIdx === 0) {
+              isDeleting = false;
+              stateIdx = (stateIdx + 1) % states.length;
+              setTimeout(tick, 450);
+              return;
+            }
+            setTimeout(tick, deleteSpeed());
+          } else {
+            charIdx++;
+            target.textContent = currentWord.substring(0, charIdx);
 
-  <section id="projects">
-    <h2>Who I am Otherwise</h2>
+            if (charIdx === currentWord.length) {
+              isDeleting = true;
+              setTimeout(tick, 2600);
+              return;
+            }
+            setTimeout(tick, typeSpeed());
+          }
+        };
 
-    <p>
-      I'm a surfer, an outdoorsman, a BJJ player, and a friend. When
-      my life isn't focused on one of those, I am still building and tinkering on
-      projects; this site is one of those projects, where I keep my
-      <a href="/blog">writing</a> and <a href="/photos">photography</a>.
-    </p>
-  </section>
+        // Start cycling after an initial pause
+        setTimeout(tick, 2200);
+      }
+    </script>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      Email: <a href="mailto:me@michaelarnold.io">me@michaelarnold.io</a>
-    </p>
-  </section>
-</BaseLayout>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #09090b;
+        --surface: #121215;
+        --border: rgba(255, 255, 255, 0.08);
+        --border-hover: rgba(255, 255, 255, 0.22);
+        --text: #f4f4f5;
+        --text-muted: #71717a;
+        --text-dim: #a1a1aa;
+        --accent: #f97316;
+        --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: var(--font-mono);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      .viewport {
+        min-height: 100dvh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: safe center;
+        padding: clamp(28px, 5vh, 48px) 20px;
+        box-sizing: border-box;
+      }
+
+      .shell {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(20px, 3.5vh, 28px);
+      }
+
+      /* Top header */
+      .top-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--text-dim);
+        letter-spacing: 0.02em;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 4px 10px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+      }
+
+      .status-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--accent);
+        box-shadow: 0 0 8px rgba(249, 115, 22, 0.65);
+        display: inline-block;
+      }
+
+      .status-text {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        letter-spacing: 0.04em;
+        text-transform: lowercase;
+      }
+
+      /* Message & typewriter */
+      .message-section {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        line-height: 1.5;
+      }
+
+      .greeting {
+        font-size: clamp(0.92rem, 2.5vw, 1.02rem);
+        color: var(--text-dim);
+        font-weight: 400;
+      }
+
+      .terminal-line {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 6px;
+        font-size: clamp(0.92rem, 2.5vw, 1.02rem);
+        color: var(--text);
+        min-height: 1.5em;
+      }
+
+      .prompt-label {
+        color: var(--text-muted);
+      }
+
+      .dynamic-wrap {
+        display: inline-flex;
+        align-items: baseline;
+      }
+
+      .typewriter-text {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .cursor {
+        display: inline-block;
+        margin-left: 2px;
+        color: var(--accent);
+        font-size: 0.88em;
+        line-height: 1;
+        animation: blink 1.05s steps(1) infinite;
+        user-select: none;
+      }
+
+      @keyframes blink {
+        0%,
+        49% {
+          opacity: 1;
+        }
+        50%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* Photo card */
+      .photo-card {
+        width: 100%;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px 8px 11px 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        transition: border-color 0.25s ease;
+      }
+
+      @media (hover: hover) {
+        .photo-card:hover {
+          border-color: var(--border-hover);
+        }
+
+        .photo-card:hover .photo-img {
+          transform: scale(1.018);
+        }
+      }
+
+      .image-wrapper {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+        border-radius: 4px;
+        background: #000;
+      }
+
+      .photo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .photo-caption {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 0 4px;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        letter-spacing: 0.02em;
+      }
+
+      .photo-caption .sep {
+        color: rgba(255, 255, 255, 0.15);
+      }
+
+      .photo-caption .loc {
+        color: var(--text-muted);
+      }
+
+      /* Footer */
+      .footer-bar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-top: 2px;
+      }
+
+      .nav-link {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: color 0.18s ease;
+        padding: 8px 0;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      @media (hover: hover) {
+        .nav-link:hover {
+          color: var(--text);
+        }
+      }
+
+      .nav-link:focus-visible {
+        color: var(--text);
+        outline: none;
+      }
+
+      .nav-sep {
+        color: rgba(255, 255, 255, 0.15);
+        font-size: 0.75rem;
+        user-select: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .cursor {
+          animation: none;
+          opacity: 1;
+        }
+        .photo-img {
+          transition: none;
+        }
+      }
+
+      /* Mobile fine-tuning */
+      @media (max-width: 480px) {
+        .viewport {
+          justify-content: flex-start;
+          padding: 24px 18px 40px 18px;
+        }
+
+        .shell {
+          gap: 22px;
+        }
+
+        .photo-caption {
+          font-size: 0.68rem;
+        }
+      }
+    </style>
+  </body>
+</html>
